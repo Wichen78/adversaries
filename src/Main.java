@@ -24,7 +24,9 @@ public class Main {
 
     public static void chooseProfession() {
         printLine(1);
-        System.out.print("Choose a profession:\n(a) auror\n(m) magizoologist\n(p) professor\nEnter a, m or p: ");
+        System.out.print("Choose a profession:\n(a) auror\n(m) magizoologist\n(p) professor\n" +
+                "(q) quit\n" +
+                "Enter a, m or p: ");
         switch (in.nextLine()) {
             case "a":
             case "auror":
@@ -38,6 +40,9 @@ public class Main {
             case "professor":
                 wizard = Person.createProf();
                 break;
+            case "q":
+            case "quit":
+                return;
             default:
                 chooseProfession();
                 return;
@@ -509,7 +514,7 @@ public class Main {
     }
 
     public static void fight() {
-        int[] result; //[wizard_life, adversary_life, energy, adv_hit]
+        int[] result; //[wizard_life, adversary_life, energy]
         for(int i = 0; i < adversaries.length; i++) {
             wizard_life = new int[MAXSTAMINALOSE];
             energy_used = new int[100];
