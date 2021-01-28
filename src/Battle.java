@@ -4,7 +4,6 @@ public class Battle {
 
     public static int[] battle(Person p, Person q, boolean verbose, Potion p1, Potion p2) {
         int count_wiz = 0;
-        int count_adv = 0;
         float power = p.power; //for potion
         while(q.currentStamina > 0) {
             //Attaque phase
@@ -25,7 +24,7 @@ public class Battle {
                 }
                 count_wiz++;
                 if (q.currentStamina < 0)
-                    return new int[]{p.currentStamina, q.currentStamina, count_wiz, count_adv};
+                    return new int[]{p.currentStamina, q.currentStamina, count_wiz};
             }while(Math.random() < multi_attack);
 
             //Defense phase
@@ -42,14 +41,9 @@ public class Battle {
                     if(verbose)
                         System.out.println("me dodge");
                 }
-                count_adv++;
-                /*
-                if (p.currentStamina < 0)
-                    return new int[]{p.currentStamina, q.currentStamina, count_wiz, count_adv};
-                */
             }while(Math.random() < multi_attack);
         }
-        return new int[]{p.currentStamina, q.currentStamina, count_wiz, count_adv};
+        return new int[]{p.currentStamina, q.currentStamina, count_wiz};
     }
 
 
