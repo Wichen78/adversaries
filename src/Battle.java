@@ -2,15 +2,9 @@ public class Battle {
 
     private static float multi_attack = 0.166f;
 
-    //for potion usage
-    static float bonus_power_potion1 = 0f;
-    static float bonus_power_potion2 = 0f;
-    static int bonus_hit_potion1 = 0;
-    static int bonus_hit_potion2 = 0;
-
-
-    public static int[] battle(Person p, Person q, boolean verbose) {
-        int count = 0;
+    public static int[] battle(Person p, Person q, boolean verbose, Potion p1, Potion p2) {
+        int count_wiz = 0;
+        int count_adv = 0;
         float power = p.power; //for potion
         while(q.currentStamina > 0) {
             //Attaque phase
@@ -22,16 +16,16 @@ public class Battle {
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.print("                   ");
                     }
-                    p.power = powerWithPotion(p);
+                    p.power = powerWithPotion(p, p1, p2);
                     q.currentStamina = q.currentStamina - damage(p, q, isCritical(p, q), verbose);
                     p.power = power;
                 } else {
                     if(verbose)
                         System.out.println("               adv dodge");
                 }
-                count++;
+                count_wiz++;
                 if (q.currentStamina < 0)
-                    return new int[]{p.currentStamina, q.currentStamina, count};
+                    return new int[]{p.currentStamina, q.currentStamina, count_wiz, count_adv};
             }while(Math.random() < multi_attack);
 
             //Defense phase
@@ -48,9 +42,14 @@ public class Battle {
                     if(verbose)
                         System.out.println("me dodge");
                 }
+                count_adv++;
+                /*
+                if (p.currentStamina < 0)
+                    return new int[]{p.currentStamina, q.currentStamina, count_wiz, count_adv};
+                */
             }while(Math.random() < multi_attack);
         }
-        return new int[]{p.currentStamina, q.currentStamina, count};
+        return new int[]{p.currentStamina, q.currentStamina, count_wiz, count_adv};
     }
 
 
@@ -110,20 +109,20 @@ public class Battle {
         }
     }
 
-    public static float powerWithPotion(Person p) {
-        if(bonus_hit_potion1 > 0) {
-            if(bonus_hit_potion2 > 0) {
-                bonus_hit_potion1--;
-                bonus_hit_potion2--;
-                return p.power * (1 + bonus_power_potion1 + bonus_power_potion2);
+    public static float powerWithPotion(Person p, Potion p1, Potion p2) {
+        if(p1 != null && p1.isActif()) {
+            if(p2 != null && p2.isActif()) {
+                p1.useCharge();
+                p2.useCharge();
+                return p.power * (1 + p1.getPower_bonus() + p2.getPower_bonus());
             } else {
-                bonus_hit_potion1--;
-                return p.power * (1 + bonus_power_potion1);
+                p1.useCharge();
+                return p.power * (1 + p1.getPower_bonus());
             }
         } else {
-            if(bonus_hit_potion2 > 0) {
-                bonus_hit_potion2--;
-                return p.power * (1 + bonus_power_potion2);
+            if(p2 != null && p2.isActif()) {
+                p2.useCharge();
+                return p.power * (1 + p2.getPower_bonus());
             } else {
                 return p.power;
             }

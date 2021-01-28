@@ -15,16 +15,15 @@ public class Main {
     static int sum_life;
     static int sum_energy;
 
+    static Potion potion1;
+    static Potion potion2;
 
     public static void main(String[] args) {
-        do {
-            chooseProfession();
-            fight();
-        }while(continu());
+        chooseProfession();
     }
 
     public static void chooseProfession() {
-        printLine();
+        printLine(1);
         System.out.print("Choose a profession:\n(a) auror\n(m) magizoologist\n(p) professor\nEnter a, m or p: ");
         switch (in.nextLine()) {
             case "a":
@@ -47,7 +46,7 @@ public class Main {
     }
 
     public static void chooseAdversaries() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries lineup:\n" +
                 "(0) draco malfoy lineup\n" +
                 "(1) fenrir greyback lineup\n" +
@@ -97,12 +96,12 @@ public class Main {
                 return;
             default:
                 chooseAdversaries();
-                return;
+                //return;
         }
     }
 
     public static void chooseDracoMalfoyLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Common Serpent\n" +
                 "(1) Imposing Dark Wizard\n" +
@@ -134,7 +133,7 @@ public class Main {
     }
 
     public static void chooseFenrirGreybackLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Imposing Snatcher\n" +
                 "(1) Dangerous Werewolf\n" +
@@ -166,7 +165,7 @@ public class Main {
     }
 
     public static void chooseGilderoyLockhartLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Common Pixie\n" +
                 "(1) Dangerous Pixie\n" +
@@ -198,7 +197,7 @@ public class Main {
     }
 
     public static void chooseSlytherinsBasiliskLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Formidable Serpent\n" +
                 "(1) Fierce Acromantula\n" +
@@ -230,7 +229,7 @@ public class Main {
     }
 
     public static void chooseAragogLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Common Acromantula\n" +
                 "(1) Fierce Acromantula\n" +
@@ -262,7 +261,7 @@ public class Main {
     }
 
     public static void choosePeterPettigrewLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Formidable Dark Wizard\n" +
                 "(1) Vicious Death Eater\n" +
@@ -294,7 +293,7 @@ public class Main {
     }
 
     public static void chooseAncientNorwegianRidgebackLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Common Troll\n" +
                 "(1) Cerberus\n" +
@@ -326,7 +325,7 @@ public class Main {
     }
 
     public static void chooseAncientUkranianIronbellyLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Formidable Poacher\n" +
                 "(1) Vicious Mummy\n" +
@@ -358,7 +357,7 @@ public class Main {
     }
 
     public static void chooseAncientHungarianHorntailLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Formidable Acromantula\n" +
                 "(1) Sphinx\n" +
@@ -390,7 +389,7 @@ public class Main {
     }
 
     public static void chooseNarcissaMalfoyLineup() {
-        printLine();
+        printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Formidable Snatcher\n" +
                 "(1) Dark Witch\n" +
@@ -422,7 +421,7 @@ public class Main {
     }
 
     public static void chooseParameter() {
-        printLine();
+        printLine(3);
         System.out.print("Choose number of simulation:\n" +
                 "(1)       1 with combat detail\n" +
                 "(2)   1.000\n" +
@@ -450,51 +449,119 @@ public class Main {
                 chooseParameter();
                 return;
         }
-        //Potion function call
+        choosePotion();
+    }
+
+    public static void choosePotion() {
+        printLine(4);
+        System.out.print("Choose potion:\n" +
+                "(0) any\n" +
+                "(1) wit + potent\n" +
+                "(2) wit + strong\n" +
+                "(3) wit + exstimulo\n" +
+                "(4) potent\n" +
+                "(5) strong\n" +
+                "(6) exstimulo\n" +
+                "(7) wit\n" +
+                "(r) return\n" +
+                "Enter a number between 0 and 7: ");
+        switch (in.nextLine()) {
+            case "0":
+                potion1 = null;
+                potion2 = null;
+                break;
+            case "1":
+                potion1 = Potion.getPotent();
+                potion2 = Potion.getWit();
+                break;
+            case "2":
+                potion1 = Potion.getStrong();
+                potion2 = Potion.getWit();
+                break;
+            case "3":
+                potion1 = Potion.getExstimulo();
+                potion2 = Potion.getWit();
+                break;
+            case "4":
+                potion1 = Potion.getPotent();
+                potion2 = null;
+                break;
+            case "5":
+                potion1 = Potion.getStrong();
+                potion2 = null;
+                break;
+            case "6":
+                potion1 = Potion.getExstimulo();
+                potion2 = null;
+                break;
+            case "7":
+                potion1 = null;
+                potion2 = Potion.getWit();
+                break;
+            case "r":
+                chooseParameter();
+                return;
+            default:
+                choosePotion();
+                return;
+        }
+        fight();
     }
 
     public static void fight() {
-        int[] result; //[wizard_life, adversary_life, energy]
+        int[] result; //[wizard_life, adversary_life, energy, adv_hit]
         for(int i = 0; i < adversaries.length; i++) {
             wizard_life = new int[MAXSTAMINALOSE];
             energy_used = new int[100];
             sum_life = 0;
             sum_energy = 0;
             for(int c = 0; c < val; c++) {
-                result = Battle.battle(wizard, adversaries[i], val == 1);
+                result = Battle.battle(wizard, adversaries[i], val == 1, potion1, potion2);
                 wizard_life[healthToWizard_life(result[0])]++;
                 energy_used[result[2]]++;
                 sum_life += result[0];
                 sum_energy += result[2];
                 wizard.resetStamina();
                 adversaries[i].resetStamina();
+                if(potion1 != null)
+                    potion1.restartCharge();
+                if(potion2 != null)
+                    potion2.restartCharge();
             }
             printStatistic(i);
         }
+        continu();
     }
 
     public static void printStatistic(int index) {
         System.out.println("\n" + wizard.name + " against " + adversaries[index].name);
         for(int i = 0; i < wizard_life.length; i++) {
             if(wizard_life[i] != 0) {
-                System.out.println("> " + getDigit(wizard_lifeToHealth(i)) + "    health: " + getDigit(wizard_life[i]));
+                System.out.println("> " + getDigit(wizard_lifeToHealth(i), 10) + "    health: " + getDigit(wizard_life[i], 10));
             }
         }
         System.out.println();
         for(int i = 0; i < energy_used.length; i++) {
             if(energy_used[i] != 0) {
-                System.out.println("> " + getDigit(i) + "  energies: " + getDigit(energy_used[i]));
+                System.out.println("> " + getDigit(i, 10) + "  energies: " + getDigit(energy_used[i], 10));
             }
         }
         System.out.println("\n" + wizard.name + " against " + adversaries[index].name);
         System.out.println("average remaining health:  " + sum_life / (float) val + " / " + wizard.maxStamina + "\n" +
-                "average    energies used:  " + sum_energy / (float) val + "\n" +
-                "                win rate:  " + getWinrate());
+                "average energies    used:  " + sum_energy / (float) val + "\n" +
+                "             win    rate:  " + getWinrate());
     }
 
-    public static String getDigit(int number) {
+    public static String getDigit(int number, int digit) {
         int length = String.valueOf(number).length();
-        return String.format("%"+(10-length)+"s", "") + number;
+        return String.format("%"+(digit-length)+"s", "") + number;
+    }
+
+    public static String getDigit(String str, int digit) {
+        if(str == null) {
+            return String.format("%" + digit +"s", "");
+        }
+        return String.format("%"+(digit-str.length())+"s", "") + str;
     }
 
     public static int wizard_lifeToHealth(int index) {
@@ -513,23 +580,111 @@ public class Main {
         return (float) count / (float) val;
     }
 
-    public static void printLine() {
+    public static void printLine(int step) {
+        System.out.println("----------------------------------------");
+        System.out.print((step == 1) ? "(*) " : "( ) ");
+        System.out.print("Choose a profession | ");
+        System.out.print((step == 2) ? "(*) " : "( ) ");
+        System.out.print("Choose adversaries lineup | ");
+        System.out.print((step == 3) ? "(*) " : "( ) ");
+        System.out.print("Choose number of simulation | ");
+        System.out.print((step == 4) ? "(*) " : "( ) ");
+        System.out.print("Choose potion | fight | ");
+        System.out.print((step == 5) ? "(*) " : "( ) ");
+        System.out.println("Continue");
+        System.out.print("    " + getProfession() + " | ");
+        System.out.print("    " + getAdversaries() + " | ");
+        System.out.print("    " + getParameter() + " | ");
+        System.out.println("   " + getPotion());
         System.out.println("----------------------------------------");
     }
 
-    public static boolean continu() {
-        printLine();
+    public static String getProfession() {
+        if(wizard == null) {
+            return getDigit(null, 19);
+        }
+        return getDigit(wizard.name, 19);
+    }
+
+    public static String getAdversaries() {
+        if(adversaries == null) {
+            return getDigit(null, 25);
+        }
+        if(adversaries.length > 1) {
+            return getDigit(adversaries[2].name + " lineup", 25);
+        }
+        return getDigit(adversaries[0].name, 25);
+    }
+
+    public static String getParameter() {
+        if(val > 0) {
+            return getDigit(val, 27);
+        }
+        return getDigit(null, 27);
+    }
+
+    public static String getPotion() {
+        if(potion1 != null) {
+            if(potion2 != null) {
+                return getDigit(potion1.getName() + " + " + potion2.getName(), 14);
+            } else {
+                return getDigit(potion1.getName(), 14);
+            }
+        } else {
+            if(potion2 != null) {
+                return getDigit(potion2.getName(), 14);
+            } else {
+                return getDigit(null, 14);
+            }
+        }
+    }
+
+    public static void continu() {
+        printLine(5);
         System.out.print("Continue ?\n" +
-                "Enter yes or no: ");
+                "(0) fight again\n" +
+                "(1) choose potion\n" +
+                "(2) choose number of simulation\n" +
+                "(3) choose adversaries lineup\n" +
+                "(4) choose a profession\n" +
+                "(q) quit\n" +
+                "Enter a number between 0 and 4: ");
         switch (in.nextLine()) {
-            case "y":
-            case "yes":
-                return true;
-            case "n":
-            case "no":
-                return false;
+            case "0":
+                fight();
+                break;
+            case "1":
+                potion1 = null;
+                potion2 = null;
+                choosePotion();
+                break;
+            case "2":
+                potion1 = null;
+                potion2 = null;
+                val = 0;
+                chooseParameter();
+                break;
+            case "3":
+                potion1 = null;
+                potion2 = null;
+                val = -1;
+                adversaries = null;
+                chooseAdversaries();
+                break;
+            case "4":
+                potion1 = null;
+                potion2 = null;
+                val = -1;
+                adversaries = null;
+                wizard = null;
+                chooseProfession();
+                break;
+            case "q":
+            case "quit":
+                return;
             default:
-                return continu();
+                continu();
+                break;
         }
     }
 }
