@@ -644,46 +644,6 @@ public class Main {
         }
     }
 
-    public static String getProfession() {
-        if(wizard == null) {
-            return getDigit(null, 19);
-        }
-        return getDigit(wizard.name, 19);
-    }
-
-    public static String getAdversaries() {
-        if(adversaries == null) {
-            return getDigit(null, 25);
-        }
-        if(adversaries.length > 1) {
-            return getDigit(adversaries[2].name + " lineup", 25);
-        }
-        return getDigit(adversaries[0].name, 25);
-    }
-
-    public static String getParameter() {
-        if(val > 0) {
-            return getDigit(val, 27);
-        }
-        return getDigit(null, 27);
-    }
-
-    public static String getPotion() {
-        if(potion1 != null) {
-            if(potion2 != null) {
-                return getDigit(potion1.getName() + " + " + potion2.getName(), 14);
-            } else {
-                return getDigit(potion1.getName(), 14);
-            }
-        } else {
-            if(potion2 != null) {
-                return getDigit(potion2.getName(), 14);
-            } else {
-                return getDigit(null, 14);
-            }
-        }
-    }
-
     public static void continu() {
         printLine(5);
         System.out.print("Continue ?\n" +
