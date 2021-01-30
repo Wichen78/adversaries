@@ -34,7 +34,7 @@ public class Person {
         p.breachdefense =       0.32f;
         p.accuracy =            0.15f;
         p.dodge =               0.5f;
-        p.bonusprecisionfirst = 0.35f; //does not work 0.35f;
+        p.bonusprecisionfirst = 0.35f;
         p.bonuscritpowerfirst = 0.5f;
         p.bonuspower50 =        10;
         p.bonusdefense50 =      0.1f;

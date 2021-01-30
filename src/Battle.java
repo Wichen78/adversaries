@@ -4,7 +4,6 @@ public class Battle {
 
     public static int[] battle(Person p, Person q, boolean verbose, Potion p1, Potion p2) {
         int count_wiz = 0;
-        float power = p.power; //for potion
         while(q.currentStamina > 0) {
             //Attaque phase
 
@@ -15,12 +14,12 @@ public class Battle {
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.print("                   ");
                     }
-                    p.power = powerWithPotion(p, p1, p2);
-                    q.currentStamina = q.currentStamina - damage(p, q, isCritical(p, q), verbose);
-                    p.power = power;
+                    q.currentStamina = q.currentStamina - damage(p, q, isCritical(p, q), verbose, p1, p2);
                 } else {
-                    if(verbose)
+                    if(verbose) {
+                        System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.println("               adv dodge");
+                    }
                 }
                 count_wiz++;
                 if (q.currentStamina < 0)
@@ -36,10 +35,12 @@ public class Battle {
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.print("    ");
                     }
-                    p.currentStamina = p.currentStamina - damage(q, p, isCritical(q, p), verbose);
+                    p.currentStamina = p.currentStamina - damage(q, p, isCritical(q, p), verbose, null, null);
                 } else {
-                    if(verbose)
+                    if(verbose) {
                         System.out.println("me dodge");
+                        System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
+                    }
                 }
             }while(Math.random() < multi_attack);
         }
@@ -47,8 +48,8 @@ public class Battle {
     }
 
 
-    public static int damage(Person p, Person q, boolean crit, boolean verbose) {
-        float basedamage = getPower(p, q) * getProficiency(p, q) * getDefense(p, q) * getProtego(p, q);
+    public static int damage(Person p, Person q, boolean crit, boolean verbose, Potion p1, Potion p2) {
+        float basedamage = getPower(p, q) * getProficiency(p, q) * getDefense(p, q) * getProtego(p, q) * getPotion(p1, p2);
         double value;
         if(crit) {
             if (q.maxStamina == q.currentStamina) {
@@ -103,22 +104,22 @@ public class Battle {
         }
     }
 
-    public static float powerWithPotion(Person p, Potion p1, Potion p2) {
+    public static float getPotion(Potion p1, Potion p2) {
         if(p1 != null && p1.isActif()) {
             if(p2 != null && p2.isActif()) {
                 p1.useCharge();
                 p2.useCharge();
-                return p.power * (1 + p1.getPower_bonus() + p2.getPower_bonus());
+                return (1 + p1.getPower_bonus() + p2.getPower_bonus());
             } else {
                 p1.useCharge();
-                return p.power * (1 + p1.getPower_bonus());
+                return (1 + p1.getPower_bonus());
             }
         } else {
             if(p2 != null && p2.isActif()) {
                 p2.useCharge();
-                return p.power * (1 + p2.getPower_bonus());
+                return (1 + p2.getPower_bonus());
             } else {
-                return p.power;
+                return 1;
             }
         }
     }
