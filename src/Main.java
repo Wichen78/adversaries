@@ -514,7 +514,7 @@ public class Main {
     }
 
     public static void fight() {
-        int[] result; //[wizard_life, adversary_life, energy, adv_hit]
+        int[] result; //[wizard_life, adversary_life, energy]
         for(int i = 0; i < adversaries.length; i++) {
             wizard_life = new int[MAXSTAMINALOSE];
             energy_used = new int[100];
