@@ -46,6 +46,33 @@ public class Person {
         return p;
     }
 
+    public static Person createAurorBis() {
+        Person p = new Person();
+        p.name =                "Auror without DwD";
+        p.maxStamina =          296;
+        p.currentStamina =      296;
+        p.power =               100;
+        p.protego =             0.35f;
+        p.precision =           0.85f;
+        p.critpower =           1.2f;
+        p.proficiency =         1.48f;
+        p.deficiency =          0.5f;
+        p.defense =             0.39f;
+        p.breachdefense =       0.32f;
+        p.accuracy =            0.15f;
+        p.dodge =               0.5f;
+        p.bonusprecisionfirst = 0f; //for DWD bug
+        p.bonuscritpowerfirst = 0.5f;
+        p.bonuspower50 =        10;
+        p.bonusdefense50 =      0.1f;
+        p.precisionbonus =      Profession.PRECISIONBONUS.AUR;
+        p.profession =          Profession.PROFESSION.AUR;
+        p.protegobonus =        Profession.PROTEGOBONUS.AUR;
+        p.defensebonus =        Profession.DEFENSEBONUS.NEU;
+        p.breachdefensebonus =  Profession.BREACHDEFENSEBONUS.NEU;
+        return p;
+    }
+
     public static Person createMagi() {
         Person p = new Person();
         p.name =                "Magizoologist";

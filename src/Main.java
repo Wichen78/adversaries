@@ -24,13 +24,19 @@ public class Main {
 
     public static void chooseProfession() {
         printLine(1);
-        System.out.print("Choose a profession:\n(a) auror\n(m) magizoologist\n(p) professor\n" +
+        System.out.print("Choose a profession:\n(a) auror\n" +
+                "(b) auror without DwD\n" +
+                "(m) magizoologist\n" +
+                "(p) professor\n" +
                 "(q) quit\n" +
                 "Enter a, m or p: ");
         switch (in.nextLine()) {
             case "a":
             case "auror":
                 wizard = Person.createAuror();
+                break;
+            case "b":
+                wizard = Person.createAurorBis();
                 break;
             case "m":
             case "magizoologist":
@@ -64,6 +70,7 @@ public class Main {
                 "(8) ancient hungarian honrtail lineup\n" +
                 "(9) narcissa malfoy lineup\n" +
                 "(r) return\n" +
+                "(q) quit\n" +
                 "Enter a number between 0 and 9: ");
         switch (in.nextLine()) {
             case "0":
@@ -98,6 +105,9 @@ public class Main {
                 break;
             case "r":
                 chooseProfession();
+                return;
+            case "q":
+            case "quit":
                 return;
             default:
                 chooseAdversaries();
@@ -433,6 +443,7 @@ public class Main {
                 "(3)  10.000\n" +
                 "(4) 100.000\n" +
                 "(r) return\n" +
+                "(q) quit\n" +
                 "Enter a number between 1 and 4: ");
         switch (in.nextLine()) {
             case "1":
@@ -449,6 +460,9 @@ public class Main {
                 break;
             case "r":
                 chooseAdversaries();
+                return;
+            case "q":
+            case "quit":
                 return;
             default:
                 chooseParameter();
@@ -469,6 +483,7 @@ public class Main {
                 "(6) exstimulo\n" +
                 "(7) wit\n" +
                 "(r) return\n" +
+                "(q) quit\n" +
                 "Enter a number between 0 and 7: ");
         switch (in.nextLine()) {
             case "0":
@@ -505,6 +520,9 @@ public class Main {
                 break;
             case "r":
                 chooseParameter();
+                return;
+            case "q":
+            case "quit":
                 return;
             default:
                 choosePotion();
