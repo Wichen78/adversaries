@@ -311,7 +311,7 @@ public class Main {
         printLine(2);
         System.out.print("Choose adversaries:\n" +
                 "(0) Common Troll\n" +
-                "(1) Cerberus\n" +
+                "(1) Three-Headed Dog\n" +
                 "(2) Ancient Norwegian Ridgeback\n" +
                 "(3) Ancient Norwegian Ridgeback lineup\n" +
                 "(r) return\n" +
@@ -321,7 +321,7 @@ public class Main {
                 adversaries = new Person[]{Person.createCommonTroll()};
                 break;
             case "1":
-                adversaries = new Person[]{Person.createCerberus()};
+                adversaries = new Person[]{Person.createThreeHeadedDog()};
                 break;
             case "2":
                 adversaries = new Person[]{Person.createAncientNorwegianRidgeback()};
@@ -438,10 +438,11 @@ public class Main {
     public static void chooseParameter() {
         printLine(3);
         System.out.print("Choose number of simulation:\n" +
-                "(1)       1 with combat detail\n" +
-                "(2)   1.000\n" +
-                "(3)  10.000\n" +
-                "(4) 100.000\n" +
+                "(1)           1 with combat detail\n" +
+                "(2)     100.000\n" +
+                "(3)   1.000.000\n" +
+                "(4)  10.000.000\n" +
+                "(5) 100.000.000\n" +
                 "(r) return\n" +
                 "(q) quit\n" +
                 "Enter a number between 1 and 4: ");
@@ -450,13 +451,16 @@ public class Main {
                 val = 1;
                 break;
             case "2":
-                val = 1000;
+                val = 100000;
                 break;
             case "3":
-                val = 10000;
+                val = 1000000;
                 break;
             case "4":
-                val = 100000;
+                val = 10000000;
+                break;
+            case "5":
+                val = 100000000;
                 break;
             case "r":
                 chooseAdversaries();
@@ -482,6 +486,7 @@ public class Main {
                 "(5) strong\n" +
                 "(6) exstimulo\n" +
                 "(7) wit\n" +
+                "(8) all potions\n" +
                 "(r) return\n" +
                 "(q) quit\n" +
                 "Enter a number between 0 and 7: ");
@@ -518,6 +523,9 @@ public class Main {
                 potion1 = null;
                 potion2 = Potion.getWit();
                 break;
+            case "8":
+                fightwithallpotion();
+                return;
             case "r":
                 chooseParameter();
                 return;
@@ -529,6 +537,7 @@ public class Main {
                 return;
         }
         fight();
+        continu();
     }
 
     public static void fight() {
@@ -553,23 +562,49 @@ public class Main {
             }
             printStatistic(i);
         }
+    }
+
+    public static void fightwithallpotion() {
+        Potion[][] allpotion = {
+                {null, null},
+                {Potion.getPotent(), Potion.getWit()},
+                {Potion.getStrong(), Potion.getWit()},
+                {Potion.getExstimulo(), Potion.getWit()},
+                {Potion.getPotent(), null},
+                {Potion.getStrong(), null},
+                {Potion.getExstimulo(), null},
+                {null, Potion.getWit()}
+        };
+        for(int i = 0; i < allpotion.length; i++) {
+            potion1 = allpotion[i][0];
+            potion2 = allpotion[i][1];
+            fight();
+        }
+        potion1 = null;
+        potion2 = null;
         continu();
     }
 
     public static void printStatistic(int index) {
-        System.out.println("\n" + wizard.name + " against " + adversaries[index].name);
+        double sumlife = 0, sumenergy = 0;
+        System.out.println("\n----------------------------------------");
+        System.out.println(wizard.name + " against " + adversaries[index].name + " with " + getPotion());
         for(int i = 0; i < wizard_life.length; i++) {
             if(wizard_life[i] != 0) {
-                System.out.println("> " + getDigit(wizard_lifeToHealth(i), 10) + "    health: " + getDigit(wizard_life[i], 10));
+                System.out.println("> " + getDigit(wizard_lifeToHealth(i), 10) + "    health: " + getDigit(wizard_life[i], 10)
+                        + "   sum: " + getDigit(val - (int)sumlife, 10) + "   rate: " + (val - sumlife)/val);
+                sumlife += wizard_life[i];
             }
         }
         System.out.println();
-        for(int i = 0; i < energy_used.length; i++) {
+        for(int i = energy_used.length - 1; i >= 0 ; i--) {
             if(energy_used[i] != 0) {
-                System.out.println("> " + getDigit(i, 10) + "  energies: " + getDigit(energy_used[i], 10));
+                System.out.println("> " + getDigit(i, 10) + "  energies: " + getDigit(energy_used[i], 10)
+                    + "   sum: " + getDigit(val - (int)sumenergy, 10) + "   rate: " + (val - sumenergy)/val);
+                sumenergy += energy_used[i];
             }
         }
-        System.out.println("\n" + wizard.name + " against " + adversaries[index].name);
+        System.out.println("\n" + wizard.name + " against " + adversaries[index].name + " with " + getPotion());
         System.out.println("average remaining health:  " + sum_life / (float) val + " / " + wizard.maxStamina + "\n" +
                 "average energies    used:  " + sum_energy / (float) val + "\n" +
                 "             win    rate:  " + getWinrate());
@@ -604,7 +639,7 @@ public class Main {
     }
 
     public static void printLine(int step) {
-        System.out.println("----------------------------------------");
+        System.out.println("\n----------------------------------------");
         System.out.print((step == 1) ? "(*) " : "( ) ");
         System.out.print("Choose a profession | ");
         System.out.print((step == 2) ? "(*) " : "( ) ");
@@ -675,6 +710,7 @@ public class Main {
         switch (in.nextLine()) {
             case "0":
                 fight();
+                continu();
                 break;
             case "1":
                 potion1 = null;
