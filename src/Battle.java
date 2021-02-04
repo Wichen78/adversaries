@@ -9,7 +9,7 @@ public class Battle {
 
             //p not dodge
             do {
-                if (isDodged(p, q)) {
+                if (!isDodged(p, q)) {
                     if(verbose) {
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.print("                   ");
@@ -30,7 +30,7 @@ public class Battle {
 
             //this not dodge
             do {
-                if (isDodged(q, p)) {
+                if (!isDodged(q, p)) {
                     if(verbose) {
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.print("    ");
@@ -135,7 +135,7 @@ public class Battle {
 
     public static boolean isDodged(Person p, Person q) {
         if(Profession.isAccuracyLethalBonus(p.accuracylethalbonus, q.accuracylethalbonus)) {
-            //return Math.random() < (q.dodge - p.accuracy - Profession.accuracylethalbonus);
+            return Math.random() < (q.dodge - p.accuracy - p.bonusaccuracylethal);
         }
         return Math.random() < (q.dodge - p.accuracy);
     }
