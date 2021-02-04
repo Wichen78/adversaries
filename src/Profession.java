@@ -35,6 +35,13 @@ public class Profession {
      * PRO -> ADV
      */
 
+    public enum ACCURACYLETHALBONUS {WIZ, ADV, NEU}
+    //public static final float accuracylethalbonus = 1f;
+
+    /*
+     * WIZ -> ADV
+     */
+
     //Mag -> Bea -> Aur -> Dar -> Pro -> Cur -> Mag
     public static boolean isProficiency(PROFESSION p, PROFESSION q) {
         return (p == PROFESSION.MAG && q == PROFESSION.BEA ||
@@ -65,4 +72,8 @@ public class Profession {
         return (p == BREACHDEFENSEBONUS.PRO && q == BREACHDEFENSEBONUS.ADV);
     }
 
+    //WIZ -> ADV
+    public static boolean isAccuracyLethalBonus(ACCURACYLETHALBONUS p, ACCURACYLETHALBONUS q) {
+        return (p == ACCURACYLETHALBONUS.WIZ && q == ACCURACYLETHALBONUS.ADV);
+    }
 }

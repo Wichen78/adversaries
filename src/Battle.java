@@ -9,7 +9,7 @@ public class Battle {
 
             //p not dodge
             do {
-                if (Math.random() > (q.dodge - p.accuracy)) {
+                if (isDodged(p, q)) {
                     if(verbose) {
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.print("                   ");
@@ -30,7 +30,7 @@ public class Battle {
 
             //this not dodge
             do {
-                if (Math.random() > (p.dodge - q.accuracy)) {
+                if (isDodged(q, p)) {
                     if(verbose) {
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
                         System.out.print("    ");
@@ -38,8 +38,8 @@ public class Battle {
                     p.currentStamina = p.currentStamina - damage(q, p, isCritical(q, p), verbose, null, null);
                 } else {
                     if(verbose) {
-                        System.out.println("me dodge");
                         System.out.println("me : " + p.currentStamina + ",      adv : " + q.currentStamina);
+                        System.out.println("me dodge");
                     }
                 }
             }while(Math.random() < multi_attack);
@@ -131,6 +131,13 @@ public class Battle {
         } else {
             return (Math.random() < (p.precision + bonus));
         }
+    }
+
+    public static boolean isDodged(Person p, Person q) {
+        if(Profession.isAccuracyLethalBonus(p.accuracylethalbonus, q.accuracylethalbonus)) {
+            //return Math.random() < (q.dodge - p.accuracy - Profession.accuracylethalbonus);
+        }
+        return Math.random() < (q.dodge - p.accuracy);
     }
 
 }
