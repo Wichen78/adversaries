@@ -286,7 +286,7 @@ public class Person {
         p.defense =             0.4f;
         p.breachdefense =       0.2f;
         p.accuracy =            0.2f;
-        p.dodge =               0.25f;
+        p.dodge =               0.3f;
         p.profession =          Profession.PROFESSION.CUR;
         p.protegobonus =        Profession.PROTEGOBONUS.NEU;
         return p;
@@ -354,9 +354,9 @@ public class Person {
     public static Person createCommonAcromantula() {
         Person p = new Person();
         p.name =                "Common Acromantula";
-        p.maxStamina =          486;
-        p.currentStamina =      486;
-        p.power =               28;
+        p.maxStamina =          522;
+        p.currentStamina =      522;
+        p.power =               30;
         p.proficiency =         0.50f;
         p.deficiency =          0.76f;
         p.defense =             0.25f;
@@ -371,9 +371,9 @@ public class Person {
     public static Person createFierceAcromantula2() {
         Person p = new Person();
         p.name =                "Fierce Acromantula";
-        p.maxStamina =          1382;
-        p.currentStamina =      1382;
-        p.power =               62;
+        p.maxStamina =          1447;
+        p.currentStamina =      1447;
+        p.power =               67;
         p.proficiency =         0.50f;
         p.deficiency =          0.76f;
         p.defense =             0.4f;
@@ -388,9 +388,9 @@ public class Person {
     public static Person createAragog() {
         Person p = new Person();
         p.name =                "Aragog";
-        p.maxStamina =          2411;
-        p.currentStamina =      2411;
-        p.power =               115;
+        p.maxStamina =          2488;
+        p.currentStamina =      2488;
+        p.power =               119;
         p.defense =             0.5f;
         p.breachdefense =       0.2f;
         p.accuracy =            0.2f;
