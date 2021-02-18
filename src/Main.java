@@ -24,27 +24,41 @@ public class Main {
 
     public static void chooseProfession() {
         printLine(1);
-        System.out.print("Choose a profession:\n(a) auror\n" +
-                "(b) auror without DwD\n" +
-                "(m) magizoologist\n" +
-                "(p) professor\n" +
+        System.out.print("Choose a profession:\n" +
+                "(a)  " + "Auror 1/2 plans" + "\n" +
+                "(aa) " + "Auror 2/2 plans" + "\n" +
+                "(b)  " + "Auror 1/2 plans without DwD" + "\n" +
+                "(bb) " + "Auror 2/2 plans without DwD" + "\n" +
+                "(m)  " + "Magizoologist 1/2 plans" + "\n" +
+                "(mm) " + "Magizoologist 2/2 plans" + "\n" +
+                "(p)  " + "Professor 1/2 plans" + "\n" +
+                "(pp) " + "Professor 2/2 plans" + "\n" +
                 "(q) quit\n" +
                 "Enter a, m or p: ");
         switch (in.nextLine()) {
             case "a":
-            case "auror":
-                wizard = Person.createAuror();
+                wizard = Person.createAuror1();
+                break;
+            case "aa":
+                wizard = Person.createAuror2();
                 break;
             case "b":
-                wizard = Person.createAurorBis();
+                wizard = Person.createAurorBis1();
+                break;
+            case "bb":
+                wizard = Person.createAurorBis2();
                 break;
             case "m":
-            case "magizoologist":
-                wizard = Person.createMagi();
+                wizard = Person.createMagi1();
+                break;
+            case "mm":
+                wizard = Person.createMagi2();
                 break;
             case "p":
-            case "professor":
-                wizard = Person.createProf();
+                wizard = Person.createProf1();
+                break;
+            case "pp":
+                wizard = Person.createProf2();
                 break;
             case "q":
             case "quit":
@@ -472,59 +486,67 @@ public class Main {
                 chooseParameter();
                 return;
         }
-        choosePotion();
+        choosePotion1();
     }
 
-    public static void choosePotion() {
+    public static void choosePotion1() {
         printLine(4);
-        System.out.print("Choose potion:\n" +
-                "(0) any\n" +
-                "(1) wit + potent\n" +
-                "(2) wit + strong\n" +
-                "(3) wit + exstimulo\n" +
-                "(4) potent\n" +
-                "(5) strong\n" +
-                "(6) exstimulo\n" +
-                "(7) wit\n" +
-                "(8) all potions\n" +
-                "(r) return\n" +
-                "(q) quit\n" +
-                "Enter a number between 0 and 7: ");
+        System.out.print("Choose potion 1:\n" +
+                "(n)   no exstimulo\n" +
+                "(p)   potent      (6)\n" +
+                "(pp)  potent     (12)\n" +
+                "(ppp) potent     (18)\n" +
+                "(s)   strong      (5)\n" +
+                "(ss)  strong     (10)\n" +
+                "(sss) strong     (15)\n" +
+                "(e)   exstimulo   (4)\n" +
+                "(ee)  exstimulo   (8)\n" +
+                "(eee) exstimulo  (12)\n" +
+                "(a)   all potions (1)\n" +
+                "(aa)  all potions (2)\n" +
+                "(aaa) all potions (3)\n" +
+                "(r)   return\n" +
+                "(q)   quit\n" +
+                "Enter a potion letter: ");
         switch (in.nextLine()) {
-            case "0":
+            case "n":
                 potion1 = null;
-                potion2 = null;
                 break;
-            case "1":
-                potion1 = Potion.getPotent();
-                potion2 = Potion.getWit();
+            case "p":
+                potion1 = Potion.getPotent1();
                 break;
-            case "2":
-                potion1 = Potion.getStrong();
-                potion2 = Potion.getWit();
+            case "pp":
+                potion1 = Potion.getPotent2();
                 break;
-            case "3":
-                potion1 = Potion.getExstimulo();
-                potion2 = Potion.getWit();
+            case "ppp":
+                potion1 = Potion.getPotent3();
                 break;
-            case "4":
-                potion1 = Potion.getPotent();
-                potion2 = null;
+            case "s":
+                potion1 = Potion.getStrong1();
                 break;
-            case "5":
-                potion1 = Potion.getStrong();
-                potion2 = null;
+            case "ss":
+                potion1 = Potion.getStrong2();
                 break;
-            case "6":
-                potion1 = Potion.getExstimulo();
-                potion2 = null;
+            case "sss":
+                potion1 = Potion.getStrong3();
                 break;
-            case "7":
-                potion1 = null;
-                potion2 = Potion.getWit();
+            case "e":
+                potion1 = Potion.getExstimulo1();
                 break;
-            case "8":
-                fightwithallpotion();
+            case "ee":
+                potion1 = Potion.getExstimulo2();
+                break;
+            case "eee":
+                potion1 = Potion.getExstimulo3();
+                break;
+            case "a":
+                fightwithallpotion1();
+                return;
+            case "aa":
+                fightwithallpotion2();
+                return;
+            case "aaa":
+                fightwithallpotion3();
                 return;
             case "r":
                 chooseParameter();
@@ -533,7 +555,47 @@ public class Main {
             case "quit":
                 return;
             default:
-                choosePotion();
+                choosePotion1();
+                return;
+        }
+        choosePotion2();
+    }
+
+    public static void choosePotion2() {
+        printLine(4);
+        System.out.print("Choose potion 2:\n" +
+                "(n)    no wit\n" +
+                "(w)    wit  (4)\n" +
+                "(ww)   wit  (8)\n" +
+                "(www)  wit (12)\n" +
+                "(wwww) wit (16)\n" +
+                "(r)    return\n" +
+                "(q)    quit\n" +
+                "Enter a potion letter: ");
+        switch (in.nextLine()) {
+            case "n":
+                potion2 = null;
+                break;
+            case "w":
+                potion2 = Potion.getWit1();
+                break;
+            case "ww":
+                potion2 = Potion.getWit2();
+                break;
+            case "www":
+                potion2 = Potion.getWit3();
+                break;
+            case "wwww":
+                potion2 = Potion.getWit4();
+                break;
+            case "r":
+                choosePotion1();
+                return;
+            case "q":
+            case "quit":
+                return;
+            default:
+                choosePotion2();
                 return;
         }
         fight();
@@ -564,20 +626,62 @@ public class Main {
         }
     }
 
-    public static void fightwithallpotion() {
+    public static void fightwithallpotion1() {
         Potion[][] allpotion = {
                 {null, null},
-                {Potion.getPotent(), Potion.getWit()},
-                {Potion.getStrong(), Potion.getWit()},
-                {Potion.getExstimulo(), Potion.getWit()},
-                {Potion.getPotent(), null},
-                {Potion.getStrong(), null},
-                {Potion.getExstimulo(), null},
-                {null, Potion.getWit()}
+                {Potion.getPotent1(), Potion.getWit1()},
+                {Potion.getStrong1(), Potion.getWit1()},
+                {Potion.getExstimulo1(), Potion.getWit1()},
+                {Potion.getPotent1(), null},
+                {Potion.getStrong1(), null},
+                {Potion.getExstimulo1(), null},
+                {null, Potion.getWit1()}
         };
-        for(int i = 0; i < allpotion.length; i++) {
-            potion1 = allpotion[i][0];
-            potion2 = allpotion[i][1];
+        for(Potion[] p : allpotion) {
+            potion1 = p[0];
+            potion2 = p[1];
+            fight();
+        }
+        potion1 = null;
+        potion2 = null;
+        continu();
+    }
+
+    public static void fightwithallpotion2() {
+        Potion[][] allpotion = {
+                {null, null},
+                {Potion.getPotent2(), Potion.getWit2()},
+                {Potion.getStrong2(), Potion.getWit2()},
+                {Potion.getExstimulo2(), Potion.getWit2()},
+                {Potion.getPotent2(), null},
+                {Potion.getStrong2(), null},
+                {Potion.getExstimulo2(), null},
+                {null, Potion.getWit2()}
+        };
+        for(Potion[] p : allpotion) {
+            potion1 = p[0];
+            potion2 = p[1];
+            fight();
+        }
+        potion1 = null;
+        potion2 = null;
+        continu();
+    }
+
+    public static void fightwithallpotion3() {
+        Potion[][] allpotion = {
+                {null, null},
+                {Potion.getPotent3(), Potion.getWit3()},
+                {Potion.getStrong3(), Potion.getWit3()},
+                {Potion.getExstimulo3(), Potion.getWit3()},
+                {Potion.getPotent3(), null},
+                {Potion.getStrong3(), null},
+                {Potion.getExstimulo3(), null},
+                {null, Potion.getWit3()}
+        };
+        for(Potion[] p : allpotion) {
+            potion1 = p[0];
+            potion2 = p[1];
             fight();
         }
         potion1 = null;
@@ -588,7 +692,7 @@ public class Main {
     public static void printStatistic(int index) {
         double sumlife = 0, sumenergy = 0;
         System.out.println("\n----------------------------------------");
-        System.out.println(wizard.name + " against " + adversaries[index].name + " with " + getPotion());
+        System.out.println(wizard.name + " against " + adversaries[index].name + " : " + getPotion());
         for(int i = 0; i < wizard_life.length; i++) {
             if(wizard_life[i] != 0) {
                 System.out.println("> " + getDigit(wizard_lifeToHealth(i), 10) + "    health: " + getDigit(wizard_life[i], 10)
@@ -612,14 +716,20 @@ public class Main {
 
     public static String getDigit(int number, int digit) {
         int length = String.valueOf(number).length();
-        return String.format("%"+(digit-length)+"s", "") + number;
+        if(digit-length > 0) {
+            return String.format("%"+(digit-length)+"s", "") + number;
+        }
+        return String.format("%s", "") + number;
     }
 
     public static String getDigit(String str, int digit) {
         if(str == null) {
             return String.format("%" + digit +"s", "");
         }
-        return String.format("%"+(digit-str.length())+"s", "") + str;
+        if(digit-str.length() > 0) {
+            return String.format("%"+(digit-str.length())+"s", "") + str;
+        }
+        return String.format("%s", "") + str;
     }
 
     public static int wizard_lifeToHealth(int index) {
@@ -640,7 +750,7 @@ public class Main {
 
     public static void printLine(int step) {
         System.out.println("\n----------------------------------------");
-        System.out.print((step == 1) ? "(*) " : "( ) ");
+        System.out.print((step == 1) ? "    (*) " : "    ( ) ");
         System.out.print("Choose a profession | ");
         System.out.print((step == 2) ? "(*) " : "( ) ");
         System.out.print("Choose adversaries lineup | ");
@@ -650,7 +760,7 @@ public class Main {
         System.out.print("Choose potion | fight | ");
         System.out.print((step == 5) ? "(*) " : "( ) ");
         System.out.println("Continue");
-        System.out.print("    " + getProfession() + " | ");
+        System.out.print(getProfession() + " | ");
         System.out.print("    " + getAdversaries() + " | ");
         System.out.print("    " + getParameter() + " | ");
         System.out.println("   " + getPotion());
@@ -659,9 +769,9 @@ public class Main {
 
     public static String getProfession() {
         if(wizard == null) {
-            return getDigit(null, 19);
+            return getDigit(null, 27);
         }
-        return getDigit(wizard.name, 19);
+        return getDigit(wizard.name, 27);
     }
 
     public static String getAdversaries() {
@@ -715,7 +825,7 @@ public class Main {
             case "1":
                 potion1 = null;
                 potion2 = null;
-                choosePotion();
+                choosePotion1();
                 break;
             case "2":
                 potion1 = null;
