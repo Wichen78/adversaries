@@ -45,26 +45,24 @@ public class Person {
 
     // WIZARD
 
-    public static Person createAuror() {
+    public static Person createAuror1() {
         Person p = new Person();
-        p.name =                "Auror";
+        p.name =                "Auror 1/2 plans";
         p.maxStamina =          296;
         p.currentStamina =      296;
         p.power =               100;
         p.protego =             0.35f;
-        p.precision =           0.85f;
+        p.precision =           0.35f;
         p.critpower =           1.2f;
         p.proficiency =         1.48f;
         p.deficiency =          0.5f;
         p.defense =             0.39f;
         p.breachdefense =       0.32f;
         p.accuracy =            0.15f;
-        p.dodge =               0.5f;
         p.bonusprecisionfirst = 0.35f;
         p.bonuscritpowerfirst = 0.5f;
         p.bonuspower50 =        10;
         p.bonusdefense50 =      0.1f;
-        p.bonusaccuracylethal = 1f;
         p.precisionbonus =      Profession.PRECISIONBONUS.AUR;
         p.profession =          Profession.PROFESSION.AUR;
         p.protegobonus =        Profession.PROTEGOBONUS.AUR;
@@ -72,26 +70,33 @@ public class Person {
         return p;
     }
 
-    public static Person createAurorBis() {
+    public static Person createAuror2() {
+        Person p = createAuror1();
+        p.name =                "Auror 2/2 plans";
+        p.precision =           0.85f;
+        p.dodge =               0.5f;
+        p.bonusaccuracylethal = 1f;
+        return p;
+    }
+
+    public static Person createAurorBis1() {
         Person p = new Person();
-        p.name =                "Auror without DwD";
+        p.name =                "Auror 1/2 plans without DwD";
         p.maxStamina =          296;
         p.currentStamina =      296;
         p.power =               100;
         p.protego =             0.35f;
-        p.precision =           0.85f;
+        p.precision =           0.35f;
         p.critpower =           1.2f;
         p.proficiency =         1.48f;
         p.deficiency =          0.5f;
         p.defense =             0.39f;
         p.breachdefense =       0.32f;
         p.accuracy =            0.15f;
-        p.dodge =               0.5f;
         p.bonusprecisionfirst = 0f; //for DWD bug
         p.bonuscritpowerfirst = 0.5f;
         p.bonuspower50 =        10;
         p.bonusdefense50 =      0.1f;
-        p.bonusaccuracylethal = 1f;
         p.precisionbonus =      Profession.PRECISIONBONUS.AUR;
         p.profession =          Profession.PROFESSION.AUR;
         p.protegobonus =        Profession.PROTEGOBONUS.AUR;
@@ -99,47 +104,70 @@ public class Person {
         return p;
     }
 
-    public static Person createMagi() {
+    public static Person createAurorBis2() {
+        Person p = createAurorBis1();
+        p.name =                "Auror 2/2 plans without DwD";
+        p.precision =           0.85f;
+        p.dodge =               0.5f;
+        p.bonusaccuracylethal = 1f;
+        return p;
+    }
+
+    public static Person createMagi1() {
         Person p = new Person();
-        p.name =                "Magizoologist";
+        p.name =                "Magizoologist 1/2 plans";
         p.maxStamina =          525;
         p.currentStamina =      525;
         p.power =               109;
         p.protego =             0.49f;
-        p.precision =           0.70f;
+        p.precision =           0.20f;
         p.critpower =           0.98f;
         p.proficiency =         1.48f;
         p.deficiency =          0.6f;
         p.defense =             0.71f;
         p.breachdefense =       0.22f;
         p.accuracy =            0.2f;
-        p.dodge =               0.5f;
-        p.bonusaccuracylethal = 1f;
         p.profession =          Profession.PROFESSION.MAG;
         p.defensebonus =        Profession.DEFENSEBONUS.MAG;
         p.accuracylethalbonus = Profession.ACCURACYLETHALBONUS.WIZ;
         return p;
     }
 
-    public static Person createProf() {
+    public static Person createMagi2() {
+        Person p = createMagi1();
+        p.name =                "Magizoologist 2/2 plans";
+        p.precision =           0.70f;
+        p.dodge =               0.5f;
+        p.bonusaccuracylethal = 1f;
+        return p;
+    }
+
+    public static Person createProf1() {
         Person p = new Person();
-        p.name =                "Professor";
+        p.name =                "Professor 1/2 plans";
         p.maxStamina =          397;
         p.currentStamina =      397;
         p.power =               96;
         p.protego =             0.45f;
-        p.precision =           0.73f;
+        p.precision =           0.23f;
         p.critpower =           1.11f;
         p.proficiency =         1.5f;
         p.deficiency =          0.5f;
         p.defense =             0.59f;
         p.breachdefense =       0.15f;
         p.accuracy =            0.32f;
-        p.dodge =               0.5f;
-        p.bonusaccuracylethal = 1f;
         p.profession =          Profession.PROFESSION.PRO;
         p.breachdefensebonus =  Profession.BREACHDEFENSEBONUS.PRO;
         p.accuracylethalbonus = Profession.ACCURACYLETHALBONUS.WIZ;
+        return p;
+    }
+
+    public static Person createProf2() {
+        Person p = createProf1();
+        p.name =                "Professor 2/2 plans";
+        p.precision =           0.73f;
+        p.dodge =               0.5f;
+        p.bonusaccuracylethal = 1f;
         return p;
     }
 
