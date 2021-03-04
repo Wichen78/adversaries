@@ -371,7 +371,7 @@ public class Person {
         p.name =                "Slytherins Basilisk";
         p.maxStamina =          2411;
         p.currentStamina =      2411;
-        p.power =               119;
+        p.power =               115;
         p.defense =             0.5f;
         p.breachdefense =       0.2f;
         p.accuracy =            0.2f;
