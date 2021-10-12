@@ -3,7 +3,7 @@ package app.person.models;
 import app.profession.models.Profession;
 import app.profession.models.Species;
 
-import java.util.List;
+import java.util.Set;
 
 public interface Person {
 
@@ -65,9 +65,8 @@ public interface Person {
     Profession getProfession();
     void setProfession(Profession profession);
 
-    List<Species> getSpecies();
-    void setSpecies(List<Species> species);
+    Set<Species> getSpecies();
+    void setSpecies(Set<Species> species);
 
     Person copy();
-
 }

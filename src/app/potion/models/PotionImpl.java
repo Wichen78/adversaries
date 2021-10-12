@@ -7,7 +7,19 @@ public class PotionImpl implements Potion {
     private int charge,
             maxCharge;
 
-    private PotionImpl() {}
+    private PotionImpl() {
+        this.name = "";
+        this.power = 0;
+        this.charge = 0;
+        this.maxCharge = 0;
+    }
+
+    @Override
+    public String toString() {
+        return "\n( 0) name: " + this.getName() +
+                "\n( 1) power: " + this.getPower() +
+                "\n( 2) charge: " + this.getMaxCharge();
+    }
 
     @Override
     public String getName() {

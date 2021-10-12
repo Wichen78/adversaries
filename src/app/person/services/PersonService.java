@@ -5,6 +5,7 @@ import app.person.models.Wizard;
 import app.person.models.WizardImpl;
 import app.person.persistence.AdversariesLineupData;
 import app.person.persistence.PersonData;
+import app.setting.Custom;
 
 import java.util.List;
 
@@ -206,4 +207,21 @@ public class PersonService {
         return AdversariesLineupData.createNarcissaMalfoyLineup();
     }
 
+    public static boolean edit(Wizard wizard) {
+        return wizard.edit();
+    }
+
+    public static boolean editPotions(Wizard wizard) {
+        if (wizard.getPotions().size() == 1) {
+            return Custom.editPotion(wizard.getPotions().iterator().next());
+        }
+        return Custom.editPotions(wizard.getPotions());
+    }
+
+    public static boolean edit(List<Person> adversaries) {
+        if (adversaries.size() == 1) {
+            return Custom.edit(adversaries.get(0));
+        }
+        return Custom.edit(adversaries);
+    }
 }

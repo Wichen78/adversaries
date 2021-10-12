@@ -3,8 +3,9 @@ package app.person.models;
 import app.profession.models.Profession;
 import app.profession.models.Species;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PersonImpl implements Person {
 
@@ -27,7 +28,7 @@ public class PersonImpl implements Person {
     private double bonusPrecisionFirst;
     private double bonusCriticalPowerFirst;
     private Profession profession;
-    private List<Species> species;
+    private Set<Species> species;
 
     private PersonImpl() {
         this.name = "";
@@ -49,7 +50,29 @@ public class PersonImpl implements Person {
         this.bonusPrecisionFirst = 0;
         this.bonusCriticalPowerFirst =  0;
         this.profession = Profession.NONE;
-        this.species = new LinkedList<>();
+        this.species = new HashSet<>();
+    }
+
+    @Override
+    public String toString() {
+        return "\n( 0) name: " + this.getName() +
+                "\n( 1) stamina: " + this.getMaxStamina() +
+                "\n( 2) power: " + this.getPower() +
+                "\n( 3) protego: " + this.getProtegoPower() +
+                "\n( 4) precision: " + this.getPrecision() +
+                "\n( 5) critical power: " + this.getCriticalPower() +
+                "\n( 6) proficiency: " + this.getProficiencyPower() +
+                "\n( 7) deficiency: " + this.getDeficiencyPower() +
+                "\n( 8) defense: " + this.getDefense() +
+                "\n( 9) defense breach: " + this.getDefenseBreach() +
+                "\n(10) accuracy: " + this.getAccuracy() +
+                "\n(11) dodge: " + this.getBonusDodge() +
+                "\n(12) precision (feared): " + this.getBonusPrecisionFeared() +
+                "\n(13) power (<50% stamina): " + this.getBonusPower50() +
+                "\n(14) defense (<50% stamina): " + this.getBonusDefense50() +
+                "\n(15) precision (100% stamina): " + this.getBonusPrecisionFirst() +
+                "\n(16) profession: " + this.getProfession() +
+                "\n(17) list species: "  + this.getSpecies().stream().map((Enum::toString)).collect(Collectors.joining(", "));
     }
 
     @Override
@@ -248,12 +271,12 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public List<Species> getSpecies() {
+    public Set<Species> getSpecies() {
         return species;
     }
 
     @Override
-    public void setSpecies(List<Species> species) {
+    public void setSpecies(Set<Species> species) {
         this.species = species;
     }
 
@@ -390,7 +413,7 @@ public class PersonImpl implements Person {
             return this;
         }
 
-        public PersonImplBuilder withSpecies(List<Species> species) {
+        public PersonImplBuilder withSpecies(Set<Species> species) {
             personImpl.setSpecies(species);
             return this;
         }

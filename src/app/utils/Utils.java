@@ -5,15 +5,28 @@ import app.person.models.Wizard;
 import app.potion.models.Potion;
 import app.setting.Setting;
 
-import java.util.LinkedList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Utils {
 
-    public static void printLine(Wizard wizard, List<Person> adversaries, int step) {
+    public static void printH133() {
         System.out.printf("%n%s%n", "-".repeat(133));
+    }
+
+    public static void printSUCCESS() {
+        System.out.println("SUCCESS");
+    }
+
+    public static void printFAIL() {
+        System.out.println("FAIL");
+    }
+
+    public static void printLine(Wizard wizard, List<Person> adversaries, int step) {
+        printH133();
         System.out.print((step == 1) ? "  (*) " : "  ( ) ");
         System.out.print("Choose a profession | ");
         System.out.print((step == 2) ? " (*) " : " ( ) ");
@@ -28,11 +41,11 @@ public class Utils {
         System.out.print(getAdversaries(adversaries) + " | ");
         System.out.print(getParameter() + " | ");
         System.out.print(getPotion(wizard.getPotions()));
-        System.out.printf("%n%s%n", "-".repeat(133));
+        printH133();
     }
 
     public static String getDigit(int number, int digit) {
-        int space = Math.max(digit - String.valueOf(number).length(), 0);
+        var space = Math.max(digit - String.valueOf(number).length(), 0);
         if (space > 0) {
             return String.format("%" + space + "s%d", "", number);
         }
@@ -51,8 +64,8 @@ public class Utils {
     }
 
     public static void printStatistic(Wizard wizard, Person person) {
-        int accNumberSimulation = 0;
-        System.out.printf("%n%s%n", "-".repeat(133));
+        var accNumberSimulation = 0;
+        printH133();
         System.out.printf("%s against %s: %s%n",
                 wizard.getPerson().getName(),
                 person.getName(),
@@ -99,17 +112,17 @@ public class Utils {
         );
     }
 
-    public static List<Potion> copy(List<Potion> list) {
-        List<Potion> copy = new LinkedList<>();
-        for (Potion elem : list) {
+    public static Set<Potion> copy(Set<Potion> list) {
+        var copy = new HashSet<Potion>();
+        for (var elem : list) {
             copy.add(elem.copy());
         }
         return copy;
     }
 
     public static void printFIGHT() {
-        System.out.printf("%n%s%n", "-".repeat(133));
-        System.out.print(" _____   ___    ____   _   _   _____ \n" +
+        printH133();
+        System.out.println(" _____   ___    ____   _   _   _____ \n" +
                 "|  ___| |_ _|  / ___| | | | | |_   _|\n" +
                 "| |_     | |  | |  _  | |_| |   | |  \n" +
                 "|  _|    | |  | |_| | |  _  |   | |  \n" +
@@ -142,7 +155,7 @@ public class Utils {
         return getDigit(null, 31);
     }
 
-    static String getPotion(List<Potion> potions) {
+    static String getPotion(Set<Potion> potions) {
         if (potions == null || potions.size() == 0) {
             return getDigit(null, 17);
         }

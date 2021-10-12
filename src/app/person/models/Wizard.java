@@ -2,8 +2,8 @@ package app.person.models;
 
 import app.potion.models.Potion;
 
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public interface Wizard {
 
@@ -16,8 +16,8 @@ public interface Wizard {
     Map<Integer, Integer> getEnergy_used();
     void setEnergy_used(Map<Integer, Integer> energy_used);
 
-    List<Potion> getPotions();
-    void setPotions(List<Potion> potions);
+    Set<Potion> getPotions();
+    void setPotions(Set<Potion> potions);
     void resetPotions();
 
     int getSumLifeRemaining();
@@ -28,4 +28,5 @@ public interface Wizard {
 
     Wizard copy();
     void resetFightStats();
+    boolean edit();
 }

@@ -38,35 +38,41 @@ public class Setting {
     }
 
     private static boolean chooseProfession() {
-        wizard = PersonService.createWizard();
         Utils.printLine(wizard, adversaries, 1);
         System.out.print("Choose a profession:\n" +
                 "(a) Auror 2/2 plans\n" +
                 "(b) Auror 2/2 plans without DwD\n" +
                 "(m) Magizoologist 2/2 plans\n" +
                 "(p) Professor 2/2 plans\n" +
+                "(e) Edit current profession\n" +
                 "Enter a, b, m or p: ");
         switch (in.nextLine()) {
             case "a":
                 wizard = PersonService.createAuror();
+                Utils.printSUCCESS();
                 break;
             case "b":
                 wizard = PersonService.createAurorBis();
+                Utils.printSUCCESS();
                 break;
             case "m":
                 wizard = PersonService.createMagi();
+                Utils.printSUCCESS();
                 break;
             case "p":
                 wizard = PersonService.createProf();
+                Utils.printSUCCESS();
                 break;
+            case "e":
+                return PersonService.edit(wizard);
             default:
+                Utils.printFAIL();
                 return chooseProfession();
         }
         return true;
     }
 
     private static boolean chooseAdversaries() {
-        adversaries = Collections.emptyList();
         Utils.printLine(wizard, adversaries, 2);
         System.out.print("Choose adversaries lineup:\n" +
                 "(0) draco malfoy lineup\n" +
@@ -79,39 +85,56 @@ public class Setting {
                 "(7) ancient ukranian ironbelly lineup\n" +
                 "(8) ancient hungarian honrtail lineup\n" +
                 "(9) narcissa malfoy lineup\n" +
+                "(e) Edit current adversaries\n" +
                 "Enter a number between 0 and 9: ");
         switch (in.nextLine()) {
             case "0":
                 adversaries = SettingLineup.chooseDracoMalfoyLineup();
+                Utils.printSUCCESS();
                 break;
             case "1":
                 adversaries = SettingLineup.chooseFenrirGreybackLineup();
+                Utils.printSUCCESS();
                 break;
             case "2":
                 adversaries = SettingLineup.chooseGilderoyLockhartLineup();
+                Utils.printSUCCESS();
                 break;
             case "3":
                 adversaries = SettingLineup.chooseSlytherinsBasiliskLineup();
+                Utils.printSUCCESS();
                 break;
             case "4":
                 adversaries = SettingLineup.chooseAragogLineup();
+                Utils.printSUCCESS();
                 break;
             case "5":
                 adversaries = SettingLineup.choosePeterPettigrewLineup();
+                Utils.printSUCCESS();
                 break;
             case "6":
                 adversaries = SettingLineup.chooseAncientNorwegianRidgebackLineup();
+                Utils.printSUCCESS();
                 break;
             case "7":
                 adversaries = SettingLineup.chooseAncientUkranianIronbellyLineup();
+                Utils.printSUCCESS();
                 break;
             case "8":
                 adversaries = SettingLineup.chooseAncientHungarianHorntailLineup();
+                Utils.printSUCCESS();
                 break;
             case "9":
                 adversaries = SettingLineup.chooseNarcissaMalfoyLineup();
+                Utils.printSUCCESS();
                 break;
+            case "e":
+                if (adversaries.isEmpty()) {
+                    return chooseAdversaries();
+                }
+                return PersonService.edit(adversaries);
             default:
+                Utils.printFAIL();
                 return chooseAdversaries();
         }
         return true;
@@ -122,37 +145,47 @@ public class Setting {
         System.out.print("Choose number of simulation:\n" +
                 "Enter a number between 1 and 1.000.000: ");
         try {
-            int number = Integer.parseInt(in.nextLine());
+            var number = Integer.parseInt(in.nextLine());
             NUMBER_SIMULATION = Math.min(Math.max(number, 0), 1000000);
         } catch (NumberFormatException ignored) {
+            Utils.printFAIL();
             return chooseParameter();
         }
+        Utils.printSUCCESS();
         return true;
     }
 
     private static boolean choosePotion1() {
-        wizard.resetPotions();
         Utils.printLine(wizard, adversaries, 4);
         System.out.print("Choose potion 1:\n" +
                 "(n)   no exstimulo\n" +
                 "(p)   potent      (6x)\n" +
                 "(s)   strong      (5x)\n" +
                 "(e)   exstimulo   (4x)\n" +
+                "(w)   choose potion 2\n" +
                 "Enter a potion letter: ");
         switch (in.nextLine()) {
             case "n":
+                PotionService.unselectExstimulo(wizard.getPotions());
+                Utils.printSUCCESS();
                 break;
             case "p":
-                wizard.getPotions().add(PotionService.getPotent());
+                PotionService.selectPotent(wizard.getPotions());
+                Utils.printSUCCESS();
                 break;
             case "s":
-                wizard.getPotions().add(PotionService.getStrong());
+                PotionService.selectStrong(wizard.getPotions());
+                Utils.printSUCCESS();
                 break;
             case "e":
-                wizard.getPotions().add(PotionService.getExstimulo());
+                PotionService.selectExstimulo(wizard.getPotions());
+                Utils.printSUCCESS();
                 break;
+            case "w":
+                return choosePotion2();
             default:
-                return choosePotion1();
+                Utils.printFAIL();
+                return true;
         }
         return choosePotion2();
     }
@@ -162,40 +195,56 @@ public class Setting {
         System.out.print("Choose potion 2:\n" +
                 "(n)    no wit\n" +
                 "(w)    wit  (4x)\n" +
+                "(e)    edit current potions\n" +
                 "Enter a potion letter: ");
         switch (in.nextLine()) {
             case "n":
+                PotionService.unselectWit(wizard.getPotions());
+                Utils.printSUCCESS();
                 break;
             case "w":
-                wizard.getPotions().add(PotionService.getWit());
+                PotionService.selectWit(wizard.getPotions());
+                Utils.printSUCCESS();
                 break;
+            case "e":
+                if (wizard.getPotions().isEmpty()) {
+                    return true;
+                }
+                return PersonService.editPotions(wizard);
             default:
-                return choosePotion2();
+                Utils.printFAIL();
         }
         return true;
     }
 
     private static void fight() {
         Utils.printFIGHT();
-        int numberOfThread = (NUMBER_SIMULATION < MAX_CONCURRENT_THREAD) ? 0 : MAX_CONCURRENT_THREAD;
-        int numberOfIteration = NUMBER_SIMULATION / MAX_CONCURRENT_THREAD;
-        int numberOfIterationRemaining = NUMBER_SIMULATION % MAX_CONCURRENT_THREAD;
+        var numberOfThread = (NUMBER_SIMULATION < MAX_CONCURRENT_THREAD) ? 0 : MAX_CONCURRENT_THREAD;
+        var numberOfIteration = NUMBER_SIMULATION / MAX_CONCURRENT_THREAD;
+        var numberOfIterationRemaining = NUMBER_SIMULATION % MAX_CONCURRENT_THREAD;
 
-        for (Person adversary : adversaries) {
+        for (var adversary : adversaries) {
             wizard.resetFightStats();
+
+            if (!Battle.isPossible(wizard.copy(), adversary.copy())) {
+                System.out.println("IMPOSSIBLE VICTORY");
+                Utils.printStatistic(wizard, adversary);
+                continue;
+            }
+
             ExecutorService service = null;
             var calls = new ArrayList<Callable<Boolean>>();
             try {
                 service = Executors.newFixedThreadPool(NUMBER_SIMULATION);
                 Callable<Boolean> call = () -> {
-                    for (int i = 0; i < numberOfIteration; i++) {
+                    for (var i = 0; i < numberOfIteration; i++) {
                         Battle.battle(wizard.copy(), adversary.copy(), false);
                     }
                     return true;
                 };
 
                 Callable<Boolean> callRemainder = () -> {
-                    for (int i = 0; i < numberOfIterationRemaining; i++) {
+                    for (var i = 0; i < numberOfIterationRemaining; i++) {
                         Battle.battle(wizard.copy(), adversary.copy(), NUMBER_SIMULATION == 1);
                     }
                     return true;
@@ -236,23 +285,31 @@ public class Setting {
                 "Enter a number between 0 and 4: ");
         switch (in.nextLine()) {
             case "0":
+                Utils.printSUCCESS();
                 fight();
                 break;
             case "1":
+                Utils.printSUCCESS();
                 choosePotion1();
                 break;
             case "2":
+                Utils.printSUCCESS();
                 chooseParameter();
                 break;
             case "3":
+                Utils.printSUCCESS();
                 chooseAdversaries();
                 break;
             case "4":
+                Utils.printSUCCESS();
                 chooseProfession();
                 break;
             case "q":
             case "quit":
                 System.exit(0);
+            default:
+                Utils.printFAIL();
+                continu();
         }
     }
 }

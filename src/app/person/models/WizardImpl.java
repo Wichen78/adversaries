@@ -1,11 +1,12 @@
 package app.person.models;
 
 import app.potion.models.Potion;
+import app.setting.Custom;
 import app.utils.Utils;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentSkipListMap;
 
 public class WizardImpl implements Wizard {
@@ -13,13 +14,13 @@ public class WizardImpl implements Wizard {
     private Person person;
     private Map<Integer, Integer> life_remaining;
     private Map<Integer, Integer> energy_used;
-    private List<Potion> potions;
+    private Set<Potion> potions;
 
     private WizardImpl() {
         this.person = PersonImpl.builder().build();
         this.life_remaining = new ConcurrentSkipListMap<>();
         this.energy_used = new ConcurrentSkipListMap<>();
-        this.potions = new LinkedList<>();
+        this.potions = new HashSet<>();
     }
 
     @Override
@@ -53,18 +54,18 @@ public class WizardImpl implements Wizard {
     }
 
     @Override
-    public List<Potion> getPotions() {
+    public Set<Potion> getPotions() {
         return potions;
     }
 
     @Override
-    public void setPotions(List<Potion> potions) {
+    public void setPotions(Set<Potion> potions) {
         this.potions = potions;
     }
 
     @Override
     public void resetPotions() {
-        this.potions = new LinkedList<>();
+        this.potions = new HashSet<>();
     }
 
     @Override
@@ -109,6 +110,11 @@ public class WizardImpl implements Wizard {
         this.energy_used = new ConcurrentSkipListMap<>();
     }
 
+    @Override
+    public boolean edit() {
+        return Custom.edit(this.getPerson());
+    }
+
     public static WizardImplBuilder builder() {
         return new WizardImplBuilder();
     }
@@ -135,7 +141,7 @@ public class WizardImpl implements Wizard {
             return this;
         }
 
-        public WizardImplBuilder withPotions(List<Potion> potions) {
+        public WizardImplBuilder withPotions(Set<Potion> potions) {
             wizardImpl.setPotions(potions);
             return this;
         }
