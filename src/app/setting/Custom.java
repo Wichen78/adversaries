@@ -55,24 +55,12 @@ public class Custom {
                     person.setAccuracy(editAccuracy(person.getAccuracy()));
                     break;
                 case "11":
-                    person.setBonusDodge(editDodge(person.getBonusDodge()));
+                    person.setDodge(editDodge(person.getDodge()));
                     break;
                 case "12":
-                    person.setBonusPrecisionFeared(editPrecisionFeared(person.getBonusPrecisionFeared()));
-                    break;
-                case "13":
-                    person.setBonusPower50(editPower50(person.getBonusPower50()));
-                    break;
-                case "14":
-                    person.setBonusDefense50(editDefense50(person.getBonusDefense50()));
-                    break;
-                case "15":
-                    person.setBonusPrecisionFirst(editPrecisionFirst(person.getBonusPrecisionFirst()));
-                    break;
-                case "16":
                     person.setProfession(editProfession(person.getProfession()));
                     break;
-                case "17":
+                case "13":
                     person.setSpecies(editSpecies(person.getSpecies()));
                     break;
                 case "q":
@@ -234,22 +222,6 @@ public class Custom {
 
     static double editDodge(double oldDodge) {
         return editDouble("dodge", oldDodge);
-    }
-
-    static double editPrecisionFeared(double oldPrecisionFeared) {
-        return editDouble("precision (feared)", oldPrecisionFeared);
-    }
-
-    static double editPower50(double oldPower50) {
-        return editDouble("power (<50% stamina)", oldPower50, 0, 1_000);
-    }
-
-    static double editDefense50(double oldDefense50) {
-        return editDouble("defense (<50% stamina)", oldDefense50);
-    }
-
-    static double editPrecisionFirst(double oldPrecisionFirst) {
-        return editDouble("precision (100% stamina)", oldPrecisionFirst);
     }
 
     static Profession editProfession(Profession oldProfession) {

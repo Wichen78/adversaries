@@ -21,12 +21,7 @@ public class PersonImpl implements Person {
     private double defense;
     private double defenseBreach;
     private double accuracy;
-    private double bonusDodge;
-    private double bonusPrecisionFeared;
-    private double bonusPower50;
-    private double bonusDefense50;
-    private double bonusPrecisionFirst;
-    private double bonusCriticalPowerFirst;
+    private double dodge;
     private Profession profession;
     private Set<Species> species;
 
@@ -43,12 +38,7 @@ public class PersonImpl implements Person {
         this.defense = 0;
         this.defenseBreach = 0;
         this.accuracy = 0;
-        this.bonusDodge = 0;
-        this.bonusPrecisionFeared = 0;
-        this.bonusPower50 = 0;
-        this.bonusDefense50 = 0;
-        this.bonusPrecisionFirst = 0;
-        this.bonusCriticalPowerFirst =  0;
+        this.dodge = 0;
         this.profession = Profession.NONE;
         this.species = new HashSet<>();
     }
@@ -66,13 +56,9 @@ public class PersonImpl implements Person {
                 "\n( 8) defense: " + this.getDefense() +
                 "\n( 9) defense breach: " + this.getDefenseBreach() +
                 "\n(10) accuracy: " + this.getAccuracy() +
-                "\n(11) dodge: " + this.getBonusDodge() +
-                "\n(12) precision (feared): " + this.getBonusPrecisionFeared() +
-                "\n(13) power (<50% stamina): " + this.getBonusPower50() +
-                "\n(14) defense (<50% stamina): " + this.getBonusDefense50() +
-                "\n(15) precision (100% stamina): " + this.getBonusPrecisionFirst() +
-                "\n(16) profession: " + this.getProfession() +
-                "\n(17) list species: "  + this.getSpecies().stream().map((Enum::toString)).collect(Collectors.joining(", "));
+                "\n(11) dodge: " + this.getDodge() +
+                "\n(12) profession: " + this.getProfession() +
+                "\n(13) list species: "  + this.getSpecies().stream().map((Enum::toString)).collect(Collectors.joining(", "));
     }
 
     @Override
@@ -108,6 +94,11 @@ public class PersonImpl implements Person {
     @Override
     public void setMaxStamina(int maxStamina) {
         this.maxStamina = maxStamina;
+    }
+
+    @Override
+    public boolean isFullStamina() {
+        return this.stamina == this.maxStamina;
     }
 
     @Override
@@ -201,63 +192,13 @@ public class PersonImpl implements Person {
     }
 
     @Override
-    public double getBonusDodge() {
-        return bonusDodge;
+    public double getDodge() {
+        return dodge;
     }
 
     @Override
-    public void setBonusDodge(double bonusDodge) {
-        this.bonusDodge = bonusDodge;
-    }
-
-    @Override
-    public double getBonusPrecisionFeared() {
-        return bonusPrecisionFeared;
-    }
-
-    @Override
-    public void setBonusPrecisionFeared(double bonusPrecisionFeared) {
-        this.bonusPrecisionFeared = bonusPrecisionFeared;
-    }
-
-    @Override
-    public double getBonusPower50() {
-        return bonusPower50;
-    }
-
-    @Override
-    public void setBonusPower50(double bonusPower50) {
-        this.bonusPower50 = bonusPower50;
-    }
-
-    @Override
-    public double getBonusDefense50() {
-        return bonusDefense50;
-    }
-
-    @Override
-    public void setBonusDefense50(double bonusDefense50) {
-        this.bonusDefense50 = bonusDefense50;
-    }
-
-    @Override
-    public double getBonusPrecisionFirst() {
-        return bonusPrecisionFirst;
-    }
-
-    @Override
-    public void setBonusPrecisionFirst(double bonusPrecisionFirst) {
-        this.bonusPrecisionFirst = bonusPrecisionFirst;
-    }
-
-    @Override
-    public double getBonusCriticalPowerFirst() {
-        return bonusCriticalPowerFirst;
-    }
-
-    @Override
-    public void setBonusCriticalPowerFirst(double bonusCriticalPowerFirst) {
-        this.bonusCriticalPowerFirst = bonusCriticalPowerFirst;
+    public void setDodge(double dodge) {
+        this.dodge = dodge;
     }
 
     @Override
@@ -296,12 +237,7 @@ public class PersonImpl implements Person {
                 .withDefense(this.defense)
                 .withDefenseBreach(this.defenseBreach)
                 .withAccuracy(this.accuracy)
-                .withBonusDodge(this.bonusDodge)
-                .withBonusPrecisionFeared(this.bonusPrecisionFeared)
-                .withBonusPower50(this.bonusPower50)
-                .withBonusDefense50(this.bonusDefense50)
-                .withBonusPrecisionFirst(this.bonusPrecisionFirst)
-                .withBonusCriticalPowerFirst(this.bonusCriticalPowerFirst)
+                .withDodge(this.dodge)
                 .withProfession(this.profession)
                 .withSpecies(this.species)
                 .build();
@@ -378,33 +314,8 @@ public class PersonImpl implements Person {
             return this;
         }
 
-        public PersonImplBuilder withBonusDodge(double bonusDodge) {
-            personImpl.setBonusDodge(bonusDodge);
-            return this;
-        }
-
-        public PersonImplBuilder withBonusPrecisionFeared(double bonusPrecisionFeared) {
-            personImpl.setBonusPrecisionFeared(bonusPrecisionFeared);
-            return this;
-        }
-
-        public PersonImplBuilder withBonusPower50(double bonusPower50) {
-            personImpl.setBonusPower50(bonusPower50);
-            return this;
-        }
-
-        public PersonImplBuilder withBonusDefense50(double bonusDefense50) {
-            personImpl.setBonusDefense50(bonusDefense50);
-            return this;
-        }
-
-        public PersonImplBuilder withBonusPrecisionFirst(double bonusPrecisionFirst) {
-            personImpl.setBonusPrecisionFirst(bonusPrecisionFirst);
-            return this;
-        }
-
-        public PersonImplBuilder withBonusCriticalPowerFirst(double bonusCriticalPowerFirst) {
-            personImpl.setBonusCriticalPowerFirst(bonusCriticalPowerFirst);
+        public PersonImplBuilder withDodge(double dodge) {
+            personImpl.setDodge(dodge);
             return this;
         }
 

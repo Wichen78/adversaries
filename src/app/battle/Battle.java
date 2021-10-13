@@ -73,71 +73,73 @@ public class Battle {
     }
 
     static int damage(Person p, Person q, Set<Potion> potions, boolean verbose) {
-        var baseDamage = getPower(p, q) * getProficiency(p, q) * getDefense(p, q) * getProtego(p, q) * getPotion(potions);
-        var criticalPower = isCritical(p, q)
-                ? p.getCriticalPower()
-                : 0;
-        var criticalPowerFirst = (q.getStamina() == q.getMaxStamina())
-                ? p.getBonusCriticalPowerFirst()
-                : 0;
-        var damage = (int) Math.ceil(baseDamage * (1 + criticalPower + criticalPowerFirst));
+        var baseDamage = getPower(p, q)
+                * getCriticalPower(p, q)
+                * getProficiency(p, q) // proficiency - deficiency
+                * getDefense(p, q) // defense - breach defense
+                * getProtego(p, q)
+                * getPotion(potions);
+        var damage = (int) Math.ceil(baseDamage);
         if (verbose) {
             System.out.printf("%s%n",
                     Utils.getDigit(-damage, 10));
+        }
+        if (damage < 0) {
+            System.out.println("ERROR: DAMAGE IS NEGATIVE");
+            System.exit(1);
         }
         return damage;
     }
 
     static double getPower(Person p, Person q) {
-        var bonusPower = ProfessionService.getPowerBonus(p.getProfession(), q.getSpecies()) +
-                ((q.getStamina() < q.getMaxStamina()/2)
-                        ? p.getBonusPower50()
-                        : 0);
+        var bonusPower = ProfessionService.getPowerBonus(p, q);
         return p.getPower() + bonusPower;
     }
 
+    static double getCriticalPower(Person p, Person q) {
+        var bonusCriticalPower = (isCritical(p, q)
+                ? p.getCriticalPower() + ProfessionService.getCriticalPowerBonus(p, q)
+                : 0);
+        return 1 + bonusCriticalPower;
+    }
+
     static double getPotion(Set<Potion> potions) {
-        return 1 + potions.stream()
+        var bonusPotion = potions.stream()
                 .filter(Potion::isActif)
                 .mapToDouble(potion -> {
                     potion.useCharge();
                     return potion.getPower();
                 }).sum();
+        return 1 + bonusPotion;
     }
 
     static double getProficiency(Person p, Person q) {
         var proficiency = (ProfessionService.isProficiency(p.getProfession(), q.getProfession()))
-                ? p.getProficiencyPower() - q.getDeficiencyPower()
+                ? Math.max(p.getProficiencyPower() - q.getDeficiencyPower(), 0)
                 : 0;
-        return 1 + Math.max(proficiency, 0);
-    }
-
-    static boolean isCritical(Person p, Person q) {
-        var bonusPrecision = ProfessionService.getPrecisionBonus(p.getProfession(), q.getSpecies());
-        var bonusPrecisionFirst = (q.getStamina() == q.getMaxStamina())
-                ? p.getBonusPrecisionFirst()
-                : 0;
-        return (Math.random() < (p.getPrecision() + bonusPrecision + bonusPrecisionFirst));
+        return 1 + proficiency;
     }
 
     static double getProtego(Person p, Person q) {
-        var bonusProtego = ProfessionService.getProtegoBonus(p.getSpecies(), q.getProfession());
-        return Math.max(1 - q.getProtegoPower() - bonusProtego, 0);
+        var bonusProtego = ProfessionService.getProtegoBonus(p, q);
+        return 1 - Math.min(q.getProtegoPower() + bonusProtego, 1);
     }
 
     static double getDefense(Person p, Person q) {
-        var bonusDefense = ProfessionService.getDefenseBonus(p.getSpecies(), q.getProfession());
-        var bonusBreachDefense = ProfessionService.getBreachDefenseBonus(p.getProfession(), q.getSpecies());
-        var bonusDefense50 = (q.getStamina() < q.getMaxStamina()/2)
-                ? q.getBonusDefense50()
-                : 0;
-        return Math.min(Math.max(1 - q.getDefense() - bonusDefense - bonusDefense50 + p.getDefenseBreach() + bonusBreachDefense, 0), 1);
+        var bonusDefense = ProfessionService.getDefenseBonus(p, q);
+        var bonusDefenseBreach = ProfessionService.getDefenseBreachBonus(p, q);
+        return 1 - Math.min(Math.max(q.getDefense() + bonusDefense - p.getDefenseBreach() - bonusDefenseBreach, 0), 1);
     }
 
     static boolean isDodged(Person p, Person q) {
-        var bonusAccuracyLethal = ProfessionService.getAccuracyBonus(p.getProfession(), q.getSpecies()) +
-                ProfessionService.getAccuracyLethalBonus(p.getProfession(), q.getSpecies());
-        return Math.random() < (q.getBonusDodge() - p.getAccuracy() - bonusAccuracyLethal);
+        var bonusDodge = ProfessionService.getDodgeBonus(p, q);
+        var bonusAccuracy = ProfessionService.getAccuracyBonus(p, q);
+        return Math.random() < (q.getDodge() + bonusDodge - p.getAccuracy() - bonusAccuracy);
+    }
+
+    static boolean isCritical(Person p, Person q) {
+        var bonusPrecision = ProfessionService.getPrecisionBonus(p, q);
+        return Math.random() < (p.getPrecision() + bonusPrecision);
     }
 
 }

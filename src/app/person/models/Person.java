@@ -16,6 +16,7 @@ public interface Person {
 
     int getMaxStamina();
     void setMaxStamina(int maxStamina);
+    boolean isFullStamina();
 
     double getPower();
     void setPower(double power);
@@ -44,23 +45,8 @@ public interface Person {
     double getAccuracy();
     void setAccuracy(double accuracy);
 
-    double getBonusDodge();
-    void setBonusDodge(double bonusDodge);
-
-    double getBonusPrecisionFeared();
-    void setBonusPrecisionFeared(double bonusPrecisionFeared);
-
-    double getBonusPower50();
-    void setBonusPower50(double bonusPower50);
-
-    double getBonusDefense50();
-    void setBonusDefense50(double bonusDefense50);
-
-    double getBonusPrecisionFirst();
-    void setBonusPrecisionFirst(double bonusPrecisionFirst);
-
-    double getBonusCriticalPowerFirst();
-    void setBonusCriticalPowerFirst(double bonusCriticalPowerFirst);
+    double getDodge();
+    void setDodge(double dodge);
 
     Profession getProfession();
     void setProfession(Profession profession);

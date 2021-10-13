@@ -41,9 +41,8 @@ public class Setting {
         Utils.printLine(wizard, adversaries, 1);
         System.out.print("Choose a profession:\n" +
                 "(a) Auror 2/2 plans\n" +
-                "(b) Auror 2/2 plans without DwD\n" +
-                "(m) Magizoologist 2/2 plans\n" +
                 "(p) Professor 2/2 plans\n" +
+                "(m) Magizoologist 2/2 plans\n" +
                 "(e) Edit current profession\n" +
                 "Enter a, b, m or p: ");
         switch (in.nextLine()) {
@@ -51,16 +50,12 @@ public class Setting {
                 wizard = PersonService.createAuror();
                 Utils.printSUCCESS();
                 break;
-            case "b":
-                wizard = PersonService.createAurorBis();
+            case "p":
+                wizard = PersonService.createProf();
                 Utils.printSUCCESS();
                 break;
             case "m":
                 wizard = PersonService.createMagi();
-                Utils.printSUCCESS();
-                break;
-            case "p":
-                wizard = PersonService.createProf();
                 Utils.printSUCCESS();
                 break;
             case "e":

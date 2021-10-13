@@ -21,12 +21,6 @@ public class PersonService {
                 .build();
     }
 
-    public static Wizard createAurorBis() {
-        return WizardImpl.builder()
-                .withPerson(PersonData.createAurorBis())
-                .build();
-    }
-
     public static Wizard createMagi() {
         return WizardImpl.builder()
                 .withPerson(PersonData.createMagi())
