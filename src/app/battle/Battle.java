@@ -50,7 +50,7 @@ public class Battle {
                     person.decreaseStamina(damage);
                 }
                 energy_used++;
-                if (person.getStamina() < 0) {
+                if (person.getStamina() <= 0) {
                     wizard.incrementLifeRemaining(wizard.getPerson().getStamina());
                     wizard.incrementEnergyUsed(energy_used);
                     return;
@@ -80,6 +80,10 @@ public class Battle {
                 }
             } while(Math.random() < multi_attack);
         }
+
+        // never happens
+        wizard.incrementLifeRemaining(wizard.getPerson().getStamina());
+        wizard.incrementEnergyUsed(energy_used);
     }
 
     static int damage(Person p, Person q, Set<Potion> potions) {
