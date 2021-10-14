@@ -2,6 +2,8 @@
 
 it's a simulation program against adversaires
 
+use [Java 11](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html) +
+
 ---
 ---
 
