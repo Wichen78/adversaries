@@ -158,14 +158,14 @@ public class ProfessionService {
     }
 
     /**
-     * AUROR, PROFESSOR, MAGIZOOLOGIST -> FEARED_ADV: dodge +50%
+     * FEARED_ADV -> AUROR, PROFESSOR, MAGIZOOLOGIST: dodge +50%
      */
     public static double getDodgeBonus(Person p, Person q) {
-        switch (p.getProfession()) {
+        switch (q.getProfession()) {
             case AUROR:
             case PROFESSOR:
             case MAGIZOOLOGIST:
-                return  (q.getSpecies().contains(Species.FEARED_ADV))
+                return  (p.getSpecies().contains(Species.FEARED_ADV))
                         ? ProfessionData.DODGE_VS_FEARED
                         : 0;
             default:

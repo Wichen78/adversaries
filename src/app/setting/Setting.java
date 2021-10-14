@@ -230,7 +230,7 @@ public class Setting {
             ExecutorService service = null;
             var calls = new ArrayList<Callable<Boolean>>();
             try {
-                service = Executors.newFixedThreadPool(NUMBER_SIMULATION);
+                service = Executors.newFixedThreadPool(numberOfThread + 1);
                 Callable<Boolean> call = () -> {
                     for (var i = 0; i < numberOfIteration; i++) {
                         Battle.battle(wizard.copy(), adversary.copy(), false);

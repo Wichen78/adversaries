@@ -155,13 +155,14 @@ public class Utils {
         return getDigit(null, 31);
     }
 
-    static String getPotion(Set<Potion> potions) {
+    public static String getPotion(Set<Potion> potions) {
         if (potions == null || potions.size() == 0) {
             return getDigit(null, 17);
         }
         return getDigit(
                 potions
-                        .stream().map((Potion::getName))
+                        .stream().filter(Potion::isActif)
+                        .map((Potion::getName))
                         .collect(Collectors.joining(" + ")),
                 17);
     }

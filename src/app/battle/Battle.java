@@ -14,7 +14,7 @@ public class Battle {
     public static final double multi_attack = 0.2;
 
     public static boolean isPossible(Wizard wizard, Person person) {
-        return damage(wizard.getPerson(), person, wizard.getPotions(), false) > 0;
+        return damage(wizard.getPerson(), person, wizard.getPotions()) > 0;
     }
 
     public static void battle(Wizard wizard, Person person, boolean verbose) {
@@ -29,17 +29,25 @@ public class Battle {
             }
 
             do {
+                var potions = "";
+                if (verbose) {
+                    potions = Utils.getPotion(wizard.getPotions());
+                }
+                var damage = damage(wizard.getPerson(), person, wizard.getPotions());
                 if (isDodged(wizard.getPerson(), person)) {
                     if (verbose) {
-                        System.out.printf("%sadv dodge%n",
-                                Utils.getDigit(null, 33));
+                        System.out.printf("%sadv dodge %s%n",
+                                Utils.getDigit(null, 33),
+                                Utils.getDigit(potions, 20));
                     }
                 } else {
                     if (verbose) {
-                        System.out.printf("%s",
-                                Utils.getDigit(null, 32));
+                        System.out.printf("%s%s %s%n",
+                                Utils.getDigit(null, 32),
+                                Utils.getDigit(-damage, 10),
+                                Utils.getDigit(potions, 20));
                     }
-                    person.decreaseStamina(damage(wizard.getPerson(), person, wizard.getPotions(), verbose));
+                    person.decreaseStamina(damage);
                 }
                 energy_used++;
                 if (person.getStamina() < 0) {
@@ -58,21 +66,23 @@ public class Battle {
             }
 
             do {
+                var damage = damage(person, wizard.getPerson(), Collections.emptySet());
                 if (isDodged(person, wizard.getPerson())) {
                     if (verbose) {
                         System.out.println("       me dodge");
                     }
                 } else {
                     if (verbose) {
-                        System.out.print("     ");
+                        System.out.printf("     %s%n",
+                                Utils.getDigit(-damage, 10));
                     }
-                    wizard.getPerson().decreaseStamina(damage(person, wizard.getPerson(), Collections.emptySet(), verbose));
+                    wizard.getPerson().decreaseStamina(damage);
                 }
             } while(Math.random() < multi_attack);
         }
     }
 
-    static int damage(Person p, Person q, Set<Potion> potions, boolean verbose) {
+    static int damage(Person p, Person q, Set<Potion> potions) {
         var baseDamage = getPower(p, q)
                 * getCriticalPower(p, q)
                 * getProficiency(p, q) // proficiency - deficiency
@@ -80,10 +90,6 @@ public class Battle {
                 * getProtego(p, q)
                 * getPotion(potions);
         var damage = (int) Math.ceil(baseDamage);
-        if (verbose) {
-            System.out.printf("%s%n",
-                    Utils.getDigit(-damage, 10));
-        }
         if (damage < 0) {
             System.out.println("ERROR: DAMAGE IS NEGATIVE");
             System.exit(1);
