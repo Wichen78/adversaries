@@ -10,7 +10,7 @@ use [Java 11](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-ins
 ## Custom
 
 - new features: custom wizard, adversary and potion stats
-- if you want to customize lessons or specializations, you must modify `src/app/profession/persistence/ProfessionData.java` file
+- if you want to customize lessons or specializations, you must modify `src/main.app/profession/persistence/ProfessionData.java` file
 
 ---
 ---
