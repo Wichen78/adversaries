@@ -16,13 +16,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createCommonSerpent_DracoMalforLineup());
+                return List.of(PersonService.DracoMalforLineup.createCommonSerpent());
             case "1":
-                return List.of(PersonService.createImposingDarkWizard_DracoMalforLineup());
+                return List.of(PersonService.DracoMalforLineup.createImposingDarkWizard());
             case "2":
-                return List.of(PersonService.createDracoMalfoy_DracoMalforLineup());
+                return List.of(PersonService.DracoMalforLineup.createDracoMalfoy());
             case "3":
-                return PersonService.createDracoMalfoyLineup();
+                return PersonService.DracoMalforLineup.createDracoMalfoyLineup();
             default:
                 return chooseDracoMalfoyLineup();
         }
@@ -37,13 +37,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createImposingSnatcher_FenrirGreybackLineup());
+                return List.of(PersonService.FenrirGreybackLineup.createImposingSnatcher());
             case "1":
-                return List.of(PersonService.createDangerousWerewolf_FenrirGreybackLineup());
+                return List.of(PersonService.FenrirGreybackLineup.createDangerousWerewolf());
             case "2":
-                return List.of(PersonService.createFenrirGreyback_FenrirGreybackLineup());
+                return List.of(PersonService.FenrirGreybackLineup.createFenrirGreyback());
             case "3":
-                return PersonService.createFenrirGreybackLineup();
+                return PersonService.FenrirGreybackLineup.createFenrirGreybackLineup();
             default:
                 return chooseFenrirGreybackLineup();
         }
@@ -58,13 +58,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createCommonPixie_GilderoyLockhartLineup());
+                return List.of(PersonService.GilderoyLockhartLineup.createCommonPixie());
             case "1":
-                return List.of(PersonService.createDangerousPixie_GilderoyLockhartLineup());
+                return List.of(PersonService.GilderoyLockhartLineup.createDangerousPixie());
             case "2":
-                return List.of(PersonService.createGilderoyLockhart_GilderoyLockhartLineup());
+                return List.of(PersonService.GilderoyLockhartLineup.createGilderoyLockhart());
             case "3":
-                return PersonService.createGilderoyLockhartLineup();
+                return PersonService.GilderoyLockhartLineup.createGilderoyLockhartLineup();
             default:
                 return chooseGilderoyLockhartLineup();
         }
@@ -79,13 +79,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createFormidableSerpent_SlytherinsBasiliskLineup());
+                return List.of(PersonService.SlytherinsBasiliskLineup.createFormidableSerpent());
             case "1":
-                return List.of(PersonService.createFierceAcromantula_SlytherinsBasiliskLineup());
+                return List.of(PersonService.SlytherinsBasiliskLineup.createFierceAcromantula());
             case "2":
-                return List.of(PersonService.createSlytherinsBasilisk_SlytherinsBasiliskLineup());
+                return List.of(PersonService.SlytherinsBasiliskLineup.createSlytherinsBasilisk());
             case "3":
-                return PersonService.createSlytherinsBasiliskLineup();
+                return PersonService.SlytherinsBasiliskLineup.createSlytherinsBasiliskLineup();
             default:
                 return chooseSlytherinsBasiliskLineup();
         }
@@ -100,13 +100,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createCommonAcromantula_AragogLineup());
+                return List.of(PersonService.AragogLineup.createCommonAcromantula());
             case "1":
-                return List.of(PersonService.createFierceAcromantula_AragogLineup());
+                return List.of(PersonService.AragogLineup.createFierceAcromantula());
             case "2":
-                return List.of(PersonService.createAragog_AragogLineup());
+                return List.of(PersonService.AragogLineup.createAragog());
             case "3":
-                return PersonService.createAragogLineup();
+                return PersonService.AragogLineup.createAragogLineup();
             default:
                 return chooseAragogLineup();
         }
@@ -121,13 +121,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createFormidableDarkWizard_PeterPettigrewLineup());
+                return List.of(PersonService.PeterPettigrewLineup.createFormidableDarkWizard());
             case "1":
-                return List.of(PersonService.createViciousDeathEater_PeterPettigrewLineup());
+                return List.of(PersonService.PeterPettigrewLineup.createViciousDeathEater());
             case "2":
-                return List.of(PersonService.createPeterPettigrew_PeterPettigrewLineup());
+                return List.of(PersonService.PeterPettigrewLineup.createPeterPettigrew());
             case "3":
-                return PersonService.createPeterPettigrewLineup();
+                return PersonService.PeterPettigrewLineup.createPeterPettigrewLineup();
             default:
                 return choosePeterPettigrewLineup();
         }
@@ -142,13 +142,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createCommonTroll_AncientNorwegianRidgebackLineup());
+                return List.of(PersonService.AncientNorwegianRidgebackLineup.createCommonTroll());
             case "1":
-                return List.of(PersonService.createThreeHeadedDog_AncientNorwegianRidgebackLineup());
+                return List.of(PersonService.AncientNorwegianRidgebackLineup.createThreeHeadedDog());
             case "2":
-                return List.of(PersonService.createAncientNorwegianRidgeback_AncientNorwegianRidgebackLineup());
+                return List.of(PersonService.AncientNorwegianRidgebackLineup.createAncientNorwegianRidgeback());
             case "3":
-                return PersonService.createAncientNorwegianRidgebackLineup();
+                return PersonService.AncientNorwegianRidgebackLineup.createAncientNorwegianRidgebackLineup();
             default:
                 return chooseAncientNorwegianRidgebackLineup();
         }
@@ -163,13 +163,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createFormidablePoacher_AncientUkranianIronbellyLineup());
+                return List.of(PersonService.AncientUkranianIronbellyLineup.createFormidablePoacher());
             case "1":
-                return List.of(PersonService.createViciousMummy_AncientUkranianIronbellyLineup());
+                return List.of(PersonService.AncientUkranianIronbellyLineup.createViciousMummy());
             case "2":
-                return List.of(PersonService.createAncientUkranianIronbelly_AncientUkranianIronbellyLineup());
+                return List.of(PersonService.AncientUkranianIronbellyLineup.createAncientUkranianIronbelly());
             case "3":
-                return PersonService.createAncientUkranianIronbellyLineup();
+                return PersonService.AncientUkranianIronbellyLineup.createAncientUkranianIronbellyLineup();
             default:
                 return chooseAncientUkranianIronbellyLineup();
         }
@@ -184,13 +184,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createFormidableAcromantula_AncientHungarianHorntailLineup());
+                return List.of(PersonService.AncientHungarianHorntailLineup.createFormidableAcromantula());
             case "1":
-                return List.of(PersonService.createSphinx_AncientHungarianHorntailLineup());
+                return List.of(PersonService.AncientHungarianHorntailLineup.createSphinx());
             case "2":
-                return List.of(PersonService.createAncientHungarianHorntail_AncientHungarianHorntailLineup());
+                return List.of(PersonService.AncientHungarianHorntailLineup.createAncientHungarianHorntail());
             case "3":
-                return PersonService.createAncientHungarianHorntailLineup();
+                return PersonService.AncientHungarianHorntailLineup.createAncientHungarianHorntailLineup();
             default:
                 return chooseAncientHungarianHorntailLineup();
         }
@@ -205,13 +205,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.createFormidableSnatcher_NarcissaMalfoyLineup());
+                return List.of(PersonService.NarcissaMalfoyLineup.createFormidableSnatcher());
             case "1":
-                return List.of(PersonService.createDarkWitch_NarcissaMalfoyLineup());
+                return List.of(PersonService.NarcissaMalfoyLineup.createDarkWitch());
             case "2":
-                return List.of(PersonService.createNarcissaMalfoy_NarcissaMalfoyLineup());
+                return List.of(PersonService.NarcissaMalfoyLineup.createNarcissaMalfoy());
             case "3":
-                return PersonService.createNarcissaMalfoyLineup();
+                return PersonService.NarcissaMalfoyLineup.createNarcissaMalfoyLineup();
             default:
                 return chooseNarcissaMalfoyLineup();
         }

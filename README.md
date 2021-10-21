@@ -292,7 +292,7 @@ proficiency against: `Profession.CURIOSITIES -> Profession.MAGIZOOLOGIST -> Prof
 
 |        name       | stamina | power | proficiency | deficiency | defense | defense breach | accuracy | dodge |  profession |         species         |
 |:-----------------:|:-------:|:-----:|:-----------:|:----------:|:-------:|:--------------:|:--------:|:-----:|:-----------:|:-----------------------:|
-|    common pixie   |   337   |   23  |     0.5     |    0.75    |   0.25  |       0.2      |     0    |   0   | CURIOSITIES |          [PIXIE](#speciespixie)          |
+|    common pixie   |   337   |   23  |     0.5     |    0.76    |   0.25  |       0.2      |     0    |   0   | CURIOSITIES |          [PIXIE](#speciespixie)          |
 |  dangerous pixie  |   842   |   53  |     0.5     |    0.76    |   0.4   |       0.2      |    0.2   |   0   | CURIOSITIES |    [PIXIE](#speciespixie), [FEARED_ADV](#speciesfeared_adv)    |
 | gilderoy lockhart |   1750  |  112  |      0      |      0     |   0.5   |       0.2      |    0.2   |   0   |     NONE    | [FEARED_ADV](#speciesfeared_adv), [DARK_WIZARD](#speciesdark_wizard) |
 

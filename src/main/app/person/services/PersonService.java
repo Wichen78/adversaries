@@ -35,170 +35,207 @@ public class PersonService {
 
     // ADVERSARIES 0 to 4
 
-    public static Person createCommonSerpent_DracoMalforLineup() {
-        return PersonData.createCommonSerpent_DracoMalforLineup();
+    public static final class DracoMalforLineup {
+
+        public static Person createCommonSerpent() {
+            return PersonData.createCommonSerpent_DracoMalforLineup();
+        }
+
+        public static Person createImposingDarkWizard() {
+            return PersonData.createImposingDarkWizard_DracoMalforLineup();
+        }
+
+        public static Person createDracoMalfoy() {
+            return PersonData.createDracoMalfoy_DracoMalforLineup();
+        }
+
+        public static List<Person> createDracoMalfoyLineup() {
+            return AdversariesLineupData.createDracoMalfoyLineup();
+        }
+
     }
 
-    public static Person createImposingDarkWizard_DracoMalforLineup() {
-        return PersonData.createImposingDarkWizard_DracoMalforLineup();
+    public static final class FenrirGreybackLineup {
+
+        public static Person createImposingSnatcher() {
+            return PersonData.createImposingSnatcher_FenrirGreybackLineup();
+        }
+
+        public static Person createDangerousWerewolf() {
+            return PersonData.createDangerousWerewolf_FenrirGreybackLineup();
+        }
+
+        public static Person createFenrirGreyback() {
+            return PersonData.createFenrirGreyback_FenrirGreybackLineup();
+        }
+
+        public static List<Person> createFenrirGreybackLineup() {
+            return AdversariesLineupData.createFenrirGreybackLineup();
+        }
+
     }
 
-    public static Person createDracoMalfoy_DracoMalforLineup() {
-        return PersonData.createDracoMalfoy_DracoMalforLineup();
+    public static final class GilderoyLockhartLineup {
+
+        public static Person createCommonPixie() {
+            return PersonData.createCommonPixie_GilderoyLockhartLineup();
+        }
+
+        public static Person createDangerousPixie() {
+            return PersonData.createDangerousPixie_GilderoyLockhartLineup();
+        }
+
+        public static Person createGilderoyLockhart() {
+            return PersonData.createGilderoyLockhart_GilderoyLockhartLineup();
+        }
+
+        public static List<Person> createGilderoyLockhartLineup() {
+            return AdversariesLineupData.createGilderoyLockhartLineup();
+        }
+
     }
 
-    public static Person createImposingSnatcher_FenrirGreybackLineup() {
-        return PersonData.createImposingSnatcher_FenrirGreybackLineup();
+    public static final class SlytherinsBasiliskLineup {
+
+        public static Person createFormidableSerpent() {
+            return PersonData.createFormidableSerpent_SlytherinsBasiliskLineup();
+        }
+
+        public static Person createFierceAcromantula() {
+            return PersonData.createFierceAcromantula_SlytherinsBasiliskLineup();
+        }
+
+        public static Person createSlytherinsBasilisk() {
+            return PersonData.createSlytherinsBasilisk_SlytherinsBasiliskLineup();
+        }
+
+        public static List<Person> createSlytherinsBasiliskLineup() {
+            return AdversariesLineupData.createSlytherinsBasiliskLineup();
+        }
+
     }
 
-    public static Person createDangerousWerewolf_FenrirGreybackLineup() {
-        return PersonData.createDangerousWerewolf_FenrirGreybackLineup();
+    public static final class AragogLineup {
+
+        public static Person createCommonAcromantula() {
+            return PersonData.createCommonAcromantula_AragogLineup();
+        }
+
+        public static Person createFierceAcromantula() {
+            return PersonData.createFierceAcromantula_AragogLineup();
+        }
+
+        public static Person createAragog() {
+            return PersonData.createAragog_AragogLineup();
+        }
+
+        public static List<Person> createAragogLineup() {
+            return AdversariesLineupData.createAragogLineup();
+        }
+
     }
 
-    public static Person createFenrirGreyback_FenrirGreybackLineup() {
-        return PersonData.createFenrirGreyback_FenrirGreybackLineup();
-    }
-
-    public static Person createCommonPixie_GilderoyLockhartLineup() {
-        return PersonData.createCommonPixie_GilderoyLockhartLineup();
-    }
-
-    public static Person createDangerousPixie_GilderoyLockhartLineup() {
-        return PersonData.createDangerousPixie_GilderoyLockhartLineup();
-    }
-
-    public static Person createGilderoyLockhart_GilderoyLockhartLineup() {
-        return PersonData.createGilderoyLockhart_GilderoyLockhartLineup();
-    }
-
-    public static Person createFormidableSerpent_SlytherinsBasiliskLineup() {
-        return PersonData.createFormidableSerpent_SlytherinsBasiliskLineup();
-    }
-
-    public static Person createFierceAcromantula_SlytherinsBasiliskLineup() {
-        return PersonData.createFierceAcromantula_SlytherinsBasiliskLineup();
-    }
-
-    public static Person createSlytherinsBasilisk_SlytherinsBasiliskLineup() {
-        return PersonData.createSlytherinsBasilisk_SlytherinsBasiliskLineup();
-    }
-
-    public static Person createCommonAcromantula_AragogLineup() {
-        return PersonData.createCommonAcromantula_AragogLineup();
-    }
-
-    public static Person createFierceAcromantula_AragogLineup() {
-        return PersonData.createFierceAcromantula_AragogLineup();
-    }
-
-    public static Person createAragog_AragogLineup() {
-        return PersonData.createAragog_AragogLineup();
-    }
 
     // ADVERSARIES 5 to 9
 
-    public static Person createFormidableDarkWizard_PeterPettigrewLineup() {
-        return PersonData.createFormidableDarkWizard_PeterPettigrewLineup();
+    public static final class PeterPettigrewLineup {
+
+        public static Person createFormidableDarkWizard() {
+            return PersonData.createFormidableDarkWizard_PeterPettigrewLineup();
+        }
+
+        public static Person createViciousDeathEater() {
+            return PersonData.createViciousDeathEater_PeterPettigrewLineup();
+        }
+
+        public static Person createPeterPettigrew() {
+            return PersonData.createPeterPettigrew_PeterPettigrewLineup();
+        }
+
+        public static List<Person> createPeterPettigrewLineup() {
+            return AdversariesLineupData.createPeterPettigrewLineup();
+        }
+
     }
 
-    public static Person createViciousDeathEater_PeterPettigrewLineup() {
-        return PersonData.createViciousDeathEater_PeterPettigrewLineup();
+    public static final class AncientNorwegianRidgebackLineup {
+
+        public static Person createCommonTroll() {
+            return PersonData.createCommonTroll_AncientNorwegianRidgebackLineup();
+        }
+
+        public static Person createThreeHeadedDog() {
+            return PersonData.createThreeHeadedDog_AncientNorwegianRidgebackLineup();
+        }
+
+        public static Person createAncientNorwegianRidgeback() {
+            return PersonData.createAncientNorwegianRidgeback_AncientNorwegianRidgebackLineup();
+        }
+
+        public static List<Person> createAncientNorwegianRidgebackLineup() {
+            return AdversariesLineupData.createAncientNorwegianRidgebackLineup();
+        }
+
     }
 
-    public static Person createPeterPettigrew_PeterPettigrewLineup() {
-        return PersonData.createPeterPettigrew_PeterPettigrewLineup();
+    public static final class AncientUkranianIronbellyLineup {
+
+        public static Person createFormidablePoacher() {
+            return PersonData.createFormidablePoacher_AncientUkranianIronbellyLineup();
+        }
+
+        public static Person createViciousMummy() {
+            return PersonData.createViciousMummy_AncientUkranianIronbellyLineup();
+        }
+
+        public static Person createAncientUkranianIronbelly() {
+            return PersonData.createAncientUkranianIronbelly_AncientUkranianIronbellyLineup();
+        }
+
+        public static List<Person> createAncientUkranianIronbellyLineup() {
+            return AdversariesLineupData.createAncientUkranianIronbellyLineup();
+        }
+
     }
 
-    public static Person createCommonTroll_AncientNorwegianRidgebackLineup() {
-        return PersonData.createCommonTroll_AncientNorwegianRidgebackLineup();
+    public static final class AncientHungarianHorntailLineup {
+
+        public static Person createFormidableAcromantula() {
+            return PersonData.createFormidableAcromantula_AncientHungarianHorntailLineup();
+        }
+
+        public static Person createSphinx() {
+            return PersonData.createSphinx_AncientHungarianHorntailLineup();
+        }
+
+        public static Person createAncientHungarianHorntail() {
+            return PersonData.createAncientHungarianHorntail_AncientHungarianHorntailLineup();
+        }
+
+        public static List<Person> createAncientHungarianHorntailLineup() {
+            return AdversariesLineupData.createAncientHungarianHorntailLineup();
+        }
+
     }
 
-    public static Person createThreeHeadedDog_AncientNorwegianRidgebackLineup() {
-        return PersonData.createThreeHeadedDog_AncientNorwegianRidgebackLineup();
-    }
+    public static final class NarcissaMalfoyLineup {
 
-    public static Person createAncientNorwegianRidgeback_AncientNorwegianRidgebackLineup() {
-        return PersonData.createAncientNorwegianRidgeback_AncientNorwegianRidgebackLineup();
-    }
+        public static Person createFormidableSnatcher() {
+            return PersonData.createFormidableSnatcher_NarcissaMalfoyLineup();
+        }
 
-    public static Person createFormidablePoacher_AncientUkranianIronbellyLineup() {
-        return PersonData.createFormidablePoacher_AncientUkranianIronbellyLineup();
-    }
+        public static Person createDarkWitch() {
+            return PersonData.createDarkWitch_NarcissaMalfoyLineup();
+        }
 
-    public static Person createViciousMummy_AncientUkranianIronbellyLineup() {
-        return PersonData.createViciousMummy_AncientUkranianIronbellyLineup();
-    }
+        public static Person createNarcissaMalfoy() {
+            return PersonData.createNarcissaMalfoy_NarcissaMalfoyLineup();
+        }
 
-    public static Person createAncientUkranianIronbelly_AncientUkranianIronbellyLineup() {
-        return PersonData.createAncientUkranianIronbelly_AncientUkranianIronbellyLineup();
-    }
+        public static List<Person> createNarcissaMalfoyLineup() {
+            return AdversariesLineupData.createNarcissaMalfoyLineup();
+        }
 
-    public static Person createFormidableAcromantula_AncientHungarianHorntailLineup() {
-        return PersonData.createFormidableAcromantula_AncientHungarianHorntailLineup();
-    }
-
-    public static Person createSphinx_AncientHungarianHorntailLineup() {
-        return PersonData.createSphinx_AncientHungarianHorntailLineup();
-    }
-
-    public static Person createAncientHungarianHorntail_AncientHungarianHorntailLineup() {
-        return PersonData.createAncientHungarianHorntail_AncientHungarianHorntailLineup();
-    }
-
-    public static Person createFormidableSnatcher_NarcissaMalfoyLineup() {
-        return PersonData.createFormidableSnatcher_NarcissaMalfoyLineup();
-    }
-
-    public static Person createDarkWitch_NarcissaMalfoyLineup() {
-        return PersonData.createDarkWitch_NarcissaMalfoyLineup();
-    }
-
-    public static Person createNarcissaMalfoy_NarcissaMalfoyLineup() {
-        return PersonData.createNarcissaMalfoy_NarcissaMalfoyLineup();
-    }
-
-    // Lineup
-
-    public static List<Person> createDracoMalfoyLineup() {
-        return AdversariesLineupData.createDracoMalfoyLineup();
-    }
-
-    public static List<Person> createFenrirGreybackLineup() {
-        return AdversariesLineupData.createFenrirGreybackLineup();
-    }
-
-    public static List<Person> createGilderoyLockhartLineup() {
-        return AdversariesLineupData.createGilderoyLockhartLineup();
-    }
-
-    public static List<Person> createSlytherinsBasiliskLineup() {
-        return AdversariesLineupData.createSlytherinsBasiliskLineup();
-    }
-
-    public static List<Person> createAragogLineup() {
-        return AdversariesLineupData.createAragogLineup();
-    }
-
-    // LINEUP 5 to 9
-
-    public static List<Person> createPeterPettigrewLineup() {
-        return AdversariesLineupData.createPeterPettigrewLineup();
-    }
-
-    public static List<Person> createAncientNorwegianRidgebackLineup() {
-        return AdversariesLineupData.createAncientNorwegianRidgebackLineup();
-    }
-
-    public static List<Person> createAncientUkranianIronbellyLineup() {
-        return AdversariesLineupData.createAncientUkranianIronbellyLineup();
-    }
-
-    public static List<Person> createAncientHungarianHorntailLineup() {
-        return AdversariesLineupData.createAncientHungarianHorntailLineup();
-    }
-
-    public static List<Person> createNarcissaMalfoyLineup() {
-        return AdversariesLineupData.createNarcissaMalfoyLineup();
     }
 
     public static boolean edit(Wizard wizard) {

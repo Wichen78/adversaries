@@ -159,7 +159,7 @@ public class PersonData {
 
     public static Person createCommonPixie_GilderoyLockhartLineup() {
         return builder("common pixie", 337, 23,
-                FIRST_GUARD_PROFICIENCY_0_5, FIRST_GUARD_DEFICIENCY_0_75,
+                FIRST_GUARD_PROFICIENCY_0_5, FIRST_GUARD_DEFICIENCY_0_76,
                 FIRST_GUARD_DEFENSE_0_25, FIRST_GUARD_DEFENSE_BREACH_0_2,
                 0, 0,
                 Profession.CURIOSITIES, Set.of(Species.PIXIE));
