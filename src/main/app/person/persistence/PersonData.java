@@ -27,7 +27,7 @@ public class PersonData {
 
     private static final double SECOND_GUARD_DEFENSE_BREACH_0_2 = 0.2;
     private static final double SECOND_GUARD_DEFENSE_BREACH_0_25 = 0.25;
-    private static final double SECOND_GUARD_DEFENSE_BREACH_0_3 = 0.3; // Three Headed Dog
+    private static final double SECOND_GUARD_DEFENSE_BREACH_0_3 = 0.3; // Three-Headed Dog
 
     private static final double FEARED_ADV_DEFENSE_BREACH_0_2 = 0.2;
     private static final double FEARED_ADV_DEFENSE_BREACH_0_25 = 0.25; // Fenrir Greyback
@@ -109,7 +109,7 @@ public class PersonData {
 
     // ADVERSARIES 0 to 4
 
-    public static Person createCommonSerpent_DracoMalforLineup() {
+    public static Person createCommonSerpent_DracoMalfoyLineup() {
         return builder("common serpent", 188, 16,
                 FIRST_GUARD_PROFICIENCY_0_505, FIRST_GUARD_DEFICIENCY_0_75,
                 FIRST_GUARD_DEFENSE_0_25, FIRST_GUARD_DEFENSE_BREACH_0_2,
@@ -117,7 +117,7 @@ public class PersonData {
                 Profession.BEASTS, Set.of(Species.SERPENT, Species.FEARED_ADV));
     }
 
-    public static Person createImposingDarkWizard_DracoMalforLineup() {
+    public static Person createImposingDarkWizard_DracoMalfoyLineup() {
         return builder("imposing dark wizard", 763, 49,
                 SECOND_GUARD_PROFICIENCY_0_5, SECOND_GUARD_DEFICIENCY_0_76,
                 SECOND_GUARD_DEFENSE_0_4, SECOND_GUARD_DEFENSE_BREACH_0_25,
@@ -125,7 +125,7 @@ public class PersonData {
                 Profession.DARK_FORCES, Set.of(Species.DARK_WIZARD, Species.FEARED_ADV));
     }
 
-    public static Person createDracoMalfoy_DracoMalforLineup() {
+    public static Person createDracoMalfoy_DracoMalfoyLineup() {
         return builder("draco malfoy", 1635, 80,
                 0, 0,
                 FEARED_ADV_DEFENSE_0_5, FEARED_ADV_DEFENSE_BREACH_0_2,

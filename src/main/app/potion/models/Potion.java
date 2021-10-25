@@ -15,7 +15,7 @@ public interface Potion {
     void setMaxCharge(int maxCharge);
 
     void useCharge();
-    boolean isActif();
+    boolean isActive();
 
     Potion copy();
 }

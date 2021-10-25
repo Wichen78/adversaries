@@ -170,7 +170,7 @@ public class Custom {
     }
 
     static String editName(String oldName) {
-        System.out.printf("%nname: %s%nChoose new name (default %s): ", oldName, oldName);
+        System.out.printf("%n name: %s%nChoose new name (default %s): ", oldName, oldName);
         var newName = Setting.in.nextLine();
         if (newName == null || newName.isBlank()) {
             Utils.printFAIL();
@@ -225,7 +225,7 @@ public class Custom {
     }
 
     static Profession editProfession(Profession oldProfession) {
-        System.out.printf("%nold profession: %s%nlist of all professions:%n%s%nChoose a profession (default %s): ", oldProfession, ProfessionService.allProfession(), oldProfession);
+        System.out.printf("%n old profession: %s%n list of all professions:%n%s%nChoose a profession (default %s): ", oldProfession, ProfessionService.allProfession(), oldProfession);
         var newValue = Setting.in.nextLine();
         var value = ProfessionService.parseProfession(newValue);
         if (value == null) {
@@ -238,7 +238,7 @@ public class Custom {
 
     static Set<Species> editSpecies(Set<Species> oldSpecies) {
         var speciesStr = oldSpecies.stream().map(Enum::toString).collect(Collectors.joining(", "));
-        System.out.printf("%nold species: %s%n", speciesStr);
+        System.out.printf("%n old species: %s%n", speciesStr);
         System.out.print("Choose an action:\n" +
                 "(0) clear species\n" +
                 "(1) add species\n" +
@@ -262,7 +262,7 @@ public class Custom {
     static Set<Species> addSpecies(Set<Species> oldSpecies) {
         var speciesStr = oldSpecies.stream().map(Enum::toString).collect(Collectors.joining(", "));
         Utils.printH133();
-        System.out.printf("old species: %s%nlist of all scpecies:%n%s%nChoose a specie (default %s): ", speciesStr, ProfessionService.allSpecies(), speciesStr);
+        System.out.printf("old species: %s%n list of all species:%n%s%nChoose a specie (default %s): ", speciesStr, ProfessionService.allSpecies(), speciesStr);
         var newValue = Setting.in.nextLine();
         var value = ProfessionService.parseSpecies(newValue);
         if (value != null) {

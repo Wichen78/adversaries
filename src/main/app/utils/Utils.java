@@ -108,7 +108,7 @@ public class Utils {
                 getDigit(String.valueOf((double) wizard.getSumLifeRemaining() / (double) Setting.NUMBER_SIMULATION), 10),
                 wizard.getPerson().getMaxStamina(),
                 getDigit(String.valueOf((double) wizard.getSumEnergyUsed() / (double) Setting.NUMBER_SIMULATION), 10),
-                getDigit(String.valueOf(getWinrate(wizard)), 10)
+                getDigit(String.valueOf(getWinRate(wizard)), 10)
         );
     }
 
@@ -161,13 +161,13 @@ public class Utils {
         }
         return getDigit(
                 potions
-                        .stream().filter(Potion::isActif)
+                        .stream().filter(Potion::isActive)
                         .map((Potion::getName))
                         .collect(Collectors.joining(" + ")),
                 17);
     }
 
-    static double getWinrate(Wizard wizard) {
+    static double getWinRate(Wizard wizard) {
         return wizard
                 .getLife_remaining()
                 .entrySet()

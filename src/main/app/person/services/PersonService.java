@@ -35,18 +35,18 @@ public class PersonService {
 
     // ADVERSARIES 0 to 4
 
-    public static final class DracoMalforLineup {
+    public static final class DracoMalfoyLineup {
 
         public static Person createCommonSerpent() {
-            return PersonData.createCommonSerpent_DracoMalforLineup();
+            return PersonData.createCommonSerpent_DracoMalfoyLineup();
         }
 
         public static Person createImposingDarkWizard() {
-            return PersonData.createImposingDarkWizard_DracoMalforLineup();
+            return PersonData.createImposingDarkWizard_DracoMalfoyLineup();
         }
 
         public static Person createDracoMalfoy() {
-            return PersonData.createDracoMalfoy_DracoMalforLineup();
+            return PersonData.createDracoMalfoy_DracoMalfoyLineup();
         }
 
         public static List<Person> createDracoMalfoyLineup() {

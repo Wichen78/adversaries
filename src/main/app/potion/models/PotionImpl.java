@@ -65,7 +65,7 @@ public class PotionImpl implements Potion {
         this.charge--;
     }
 
-    public boolean isActif() {
+    public boolean isActive() {
         return this.charge > 0;
     }
 

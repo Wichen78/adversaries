@@ -78,7 +78,7 @@ public class Setting {
                 "(5) peter pettigrew lineup\n" +
                 "(6) ancient norwegian ridgeback lineup\n" +
                 "(7) ancient ukranian ironbelly lineup\n" +
-                "(8) ancient hungarian honrtail lineup\n" +
+                "(8) ancient hungarian horntail lineup\n" +
                 "(9) narcissa malfoy lineup\n" +
                 "(e) Edit current adversaries\n" +
                 "Enter a number between 0 and 9: ");

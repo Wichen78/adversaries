@@ -10,14 +10,14 @@ import java.util.Set;
 
 public class BattleTest {
 
-    private static final Person[] adversaires;
+    private static final Person[] adversaries;
 
     static {
-        adversaires = new Person[]{
+        adversaries = new Person[]{
                 // Draco Malfoy
-                PersonService.DracoMalforLineup.createCommonSerpent(),
-                PersonService.DracoMalforLineup.createImposingDarkWizard(),
-                PersonService.DracoMalforLineup.createDracoMalfoy(),
+                PersonService.DracoMalfoyLineup.createCommonSerpent(),
+                PersonService.DracoMalfoyLineup.createImposingDarkWizard(),
+                PersonService.DracoMalfoyLineup.createDracoMalfoy(),
                 // Fenrir Greyback
                 PersonService.FenrirGreybackLineup.createImposingSnatcher(),
                 PersonService.FenrirGreybackLineup.createDangerousWerewolf(),
@@ -122,17 +122,17 @@ public class BattleTest {
 
         @Test
         void testOutputDamage() {
-            assert adversaires.length == outputDamage.length;
+            assert adversaries.length == outputDamage.length;
             for (var i = 0; i < outputDamage.length; i++) {
-                assertOutputDamage(adversaires[i], outputDamage[i]);
+                assertOutputDamage(adversaries[i], outputDamage[i]);
             }
         }
 
         @Test
         void testInputDamage() {
-            assert adversaires.length == inputDamage.length;
+            assert adversaries.length == inputDamage.length;
             for (var i = 0; i < inputDamage.length; i++) {
-                assertInputDamage(adversaires[i], inputDamage[i]);
+                assertInputDamage(adversaries[i], inputDamage[i]);
             }
         }
 
@@ -190,17 +190,17 @@ public class BattleTest {
 
         @Test
         void testOutputDamage() {
-            assert adversaires.length == outputDamage.length;
+            assert adversaries.length == outputDamage.length;
             for (var i = 0; i < outputDamage.length; i++) {
-                assertOutputDamage(adversaires[i], outputDamage[i]);
+                assertOutputDamage(adversaries[i], outputDamage[i]);
             }
         }
 
         @Test
         void testInputDamage() {
-            assert adversaires.length == inputDamage.length;
+            assert adversaries.length == inputDamage.length;
             for (var i = 0; i < inputDamage.length; i++) {
-                assertInputDamage(adversaires[i], inputDamage[i]);
+                assertInputDamage(adversaries[i], inputDamage[i]);
             }
         }
 
@@ -254,17 +254,17 @@ public class BattleTest {
 
         @Test
         void testOutputDamage() {
-            assert adversaires.length == outputDamage.length;
+            assert adversaries.length == outputDamage.length;
             for (var i = 0; i < outputDamage.length; i++) {
-                assertOutputDamage(adversaires[i], outputDamage[i]);
+                assertOutputDamage(adversaries[i], outputDamage[i]);
             }
         }
 
         @Test
         void testInputDamage() {
-            assert adversaires.length == inputDamage.length;
+            assert adversaries.length == inputDamage.length;
             for (var i = 0; i < inputDamage.length; i++) {
-                assertInputDamage(adversaires[i], inputDamage[i]);
+                assertInputDamage(adversaries[i], inputDamage[i]);
             }
         }
 
@@ -318,17 +318,17 @@ public class BattleTest {
 
         @Test
         void testOutputDamage() {
-            assert adversaires.length == outputDamage.length;
+            assert adversaries.length == outputDamage.length;
             for (var i = 0; i < outputDamage.length; i++) {
-                assertOutputDamage(adversaires[i], outputDamage[i]);
+                assertOutputDamage(adversaries[i], outputDamage[i]);
             }
         }
 
         @Test
         void testInputDamage() {
-            assert adversaires.length == inputDamage.length;
+            assert adversaries.length == inputDamage.length;
             for (var i = 0; i < inputDamage.length; i++) {
-                assertInputDamage(adversaires[i], inputDamage[i]);
+                assertInputDamage(adversaries[i], inputDamage[i]);
             }
         }
 

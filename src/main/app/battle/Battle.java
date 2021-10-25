@@ -20,7 +20,7 @@ public class Battle {
     public static void battle(Wizard wizard, Person person, boolean verbose) {
         var energy_used = 0;
         while(person.getStamina() > 0) {
-            // Attaque phase
+            // Attack phase
             if (verbose) {
                 System.out.printf("me : %s,%sadv : %s%n",
                         Utils.getDigit(wizard.getPerson().getStamina(), 10),
@@ -115,7 +115,7 @@ public class Battle {
 
     static double getPotion(Set<Potion> potions) {
         var bonusPotion = potions.stream()
-                .filter(Potion::isActif)
+                .filter(Potion::isActive)
                 .mapToDouble(potion -> {
                     potion.useCharge();
                     return potion.getPower();

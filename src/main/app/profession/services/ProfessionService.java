@@ -101,7 +101,7 @@ public class ProfessionService {
      * ALL SPECIES
      * -> PROFESSOR: defense +15%
      * -> MAGIZOOLOGIST: defense +21%
-     * ACROMANTULE -> MAGIZOOLOGIST: defense +20%
+     * ACROMANTULA -> MAGIZOOLOGIST: defense +20%
      */
     public static double getDefenseBonus(Person p, Person q) {
         switch (q.getProfession()) {

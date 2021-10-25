@@ -10,9 +10,9 @@ public class AdversariesLineupData {
 
     public static List<Person> createDracoMalfoyLineup() {
         return List.of(
-                PersonData.createCommonSerpent_DracoMalforLineup(),
-                PersonData.createImposingDarkWizard_DracoMalforLineup(),
-                PersonData.createDracoMalfoy_DracoMalforLineup()
+                PersonData.createCommonSerpent_DracoMalfoyLineup(),
+                PersonData.createImposingDarkWizard_DracoMalfoyLineup(),
+                PersonData.createDracoMalfoy_DracoMalfoyLineup()
         );
     }
 

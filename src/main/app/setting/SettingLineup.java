@@ -16,13 +16,13 @@ public class SettingLineup {
                 "Enter a number between 0 and 3: ");
         switch (Setting.in.nextLine()) {
             case "0":
-                return List.of(PersonService.DracoMalforLineup.createCommonSerpent());
+                return List.of(PersonService.DracoMalfoyLineup.createCommonSerpent());
             case "1":
-                return List.of(PersonService.DracoMalforLineup.createImposingDarkWizard());
+                return List.of(PersonService.DracoMalfoyLineup.createImposingDarkWizard());
             case "2":
-                return List.of(PersonService.DracoMalforLineup.createDracoMalfoy());
+                return List.of(PersonService.DracoMalfoyLineup.createDracoMalfoy());
             case "3":
-                return PersonService.DracoMalforLineup.createDracoMalfoyLineup();
+                return PersonService.DracoMalfoyLineup.createDracoMalfoyLineup();
             default:
                 return chooseDracoMalfoyLineup();
         }
