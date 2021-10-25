@@ -10,7 +10,7 @@ use [Java 11](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-ins
 ## Custom
 
 - new features: custom wizard, adversary and potion stats
-- if you want to customize lessons or specializations, you must modify `src/app/profession/persistence/ProfessionData.java` file
+- if you want to customize lessons or specializations, you must modify `src/main.app/profession/persistence/ProfessionData.java` file
 
 ---
 ---
@@ -292,7 +292,7 @@ proficiency against: `Profession.CURIOSITIES -> Profession.MAGIZOOLOGIST -> Prof
 
 |        name       | stamina | power | proficiency | deficiency | defense | defense breach | accuracy | dodge |  profession |         species         |
 |:-----------------:|:-------:|:-----:|:-----------:|:----------:|:-------:|:--------------:|:--------:|:-----:|:-----------:|:-----------------------:|
-|    common pixie   |   337   |   23  |     0.5     |    0.75    |   0.25  |       0.2      |     0    |   0   | CURIOSITIES |          [PIXIE](#speciespixie)          |
+|    common pixie   |   337   |   23  |     0.5     |    0.76    |   0.25  |       0.2      |     0    |   0   | CURIOSITIES |          [PIXIE](#speciespixie)          |
 |  dangerous pixie  |   842   |   53  |     0.5     |    0.76    |   0.4   |       0.2      |    0.2   |   0   | CURIOSITIES |    [PIXIE](#speciespixie), [FEARED_ADV](#speciesfeared_adv)    |
 | gilderoy lockhart |   1750  |  112  |      0      |      0     |   0.5   |       0.2      |    0.2   |   0   |     NONE    | [FEARED_ADV](#speciesfeared_adv), [DARK_WIZARD](#speciesdark_wizard) |
 
