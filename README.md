@@ -1,4 +1,4 @@
-# adversaries
+# Adversaries
 
 it's a simulation program against adversaires
 
